@@ -15,10 +15,6 @@ sealed class Controller : MonoBehaviour
     [SerializeField] ARCameraManager _cameraManager = null;
     [SerializeField] AROcclusionManager _occlusionManager = null;
     [Space]
-    [SerializeField] int _width = 1920;
-    [SerializeField] int _height = 1080;
-    [SerializeField] int _frameRate = 60;
-    [Space]
     [SerializeField] Text _statusText = null;
     [SerializeField] RawImage _monitorImage = null;
 
@@ -28,6 +24,16 @@ sealed class Controller : MonoBehaviour
 
     [SerializeField, HideInInspector] NdiResources _ndiResources = null;
     [SerializeField, HideInInspector] Shader _monitorShader = null;
+
+    #endregion
+
+    #region Internal-use objects
+
+    const int _width = 1024;
+    const int _height = 768;
+
+    RenderTexture _monitorRT;
+    Material _monitorMaterial;
 
     #endregion
 
@@ -42,6 +48,18 @@ sealed class Controller : MonoBehaviour
 
         var text = $"Position: ({pos.x}, {pos.y}, {pos.z})\n";
         text += $"Rotation: ({rot.x}, {rot.y}, {rot.z})";
+
+        if (_textures.stencil != null)
+        {
+            text += $"\nstencil: {_textures.stencil.width} x";
+            text += $"{_textures.stencil.height}";
+        }
+
+        if (_textures.depth != null)
+        {
+            text += $"\ndepth: {_textures.depth.width} x";
+            text += $"{_textures.depth.height}";
+        }
 
         return text;
     }
@@ -86,35 +104,7 @@ sealed class Controller : MonoBehaviour
 
     #endregion
 
-    #region Configurator
-
-    bool _configured;
-
-    void ApplyConfiguration()
-    {
-        using (var configs = _cameraManager.GetConfigurations(Allocator.Temp))
-        {
-            if (!configs.IsCreated || configs.Length <= 0) return;
-
-            foreach (var config in configs)
-            {
-                if (config.width != _width) continue;
-                if (config.height != _height) continue;
-                if (config.framerate.Value != _frameRate) continue;
-                _cameraManager.currentConfiguration = config;
-                break;
-            }
-
-            _configured = true;
-        }
-    }
-
-    #endregion
-
     #region MonoBehaviour implementation
-
-    RenderTexture _monitorRT;
-    Material _monitorMaterial;
 
     void Start()
     {
@@ -151,21 +141,14 @@ sealed class Controller : MonoBehaviour
 
     void Update()
     {
-        if (!_configured)
-        {
-            ApplyConfiguration();
-        }
-        else
-        {
-            _statusText.text = StatusText;
+        _statusText.text = StatusText;
 
-            _monitorMaterial.SetTexture(ShaderID.Y      , _textures.y      );
-            _monitorMaterial.SetTexture(ShaderID.CbCr   , _textures.cbcr   );
-            _monitorMaterial.SetTexture(ShaderID.Stencil, _textures.stencil);
-            _monitorMaterial.SetTexture(ShaderID.Depth  , _textures.depth  );
+        _monitorMaterial.SetTexture(ShaderID.Y      , _textures.y      );
+        _monitorMaterial.SetTexture(ShaderID.CbCr   , _textures.cbcr   );
+        _monitorMaterial.SetTexture(ShaderID.Stencil, _textures.stencil);
+        _monitorMaterial.SetTexture(ShaderID.Depth  , _textures.depth  );
 
-            Graphics.Blit(null, _monitorRT, _monitorMaterial, 0);
-        }
+        Graphics.Blit(null, _monitorRT, _monitorMaterial, 0);
     }
 
     #endregion
