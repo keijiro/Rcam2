@@ -6,17 +6,17 @@ Desktop.ini
 .DS_Store
 
 # Code Editors
-/RcamController/.idea
-/RcamController/.vscode
-/RcamController/*.csproj
-/RcamController/*.sln
+/Rcam*/.idea
+/Rcam*/.vscode
+/Rcam*/*.csproj
+/Rcam*/*.sln
 *.swp
 
 # Unity
-/RcamController/Library
-/RcamController/Logs
-/RcamController/Temp
-/RcamController/UserSettings
+/Rcam*/Library
+/Rcam*/Logs
+/Rcam*/Temp
+/Rcam*/UserSettings
 
 # Xcode
 /RcamController/Xcode
