@@ -48,6 +48,8 @@ sealed class Controller : MonoBehaviour
     const int _width = 2048;
     const int _height = 1024;
 
+    Matrix4x4 _projection;
+
     Material _bgMaterial;
     Material _muxMaterial;
 
@@ -65,7 +67,8 @@ sealed class Controller : MonoBehaviour
         var rot = _cameraTransform.rotation.eulerAngles;
 
         var text = $"Position: ({pos.x}, {pos.y}, {pos.z})\n";
-        text += $"Rotation: ({rot.x}, {rot.y}, {rot.z})";
+        text += $"Rotation: ({rot.x}, {rot.y}, {rot.z})\n";
+        text += $"Projection: {_projection}";
 
         return text;
     }
@@ -84,6 +87,9 @@ sealed class Controller : MonoBehaviour
             if (id == ShaderID.Y   ) _textures.y    = args.textures[i];
             if (id == ShaderID.CbCr) _textures.cbcr = args.textures[i];
         }
+
+        if (args.projectionMatrix.HasValue)
+            _projection = args.projectionMatrix.Value;
     }
 
     void OnOcclusionFrameReceived(AROcclusionFrameEventArgs args)
