@@ -77,15 +77,16 @@ sealed class Controller : MonoBehaviour
 
     #region Camera events
 
-    (Texture2D y, Texture2D cbcr, Texture2D mask, Texture2D depth) _textures;
-
     void OnCameraFrameReceived(ARCameraFrameEventArgs args)
     {
         for (var i = 0; i < args.textures.Count; i++)
         {
             var id = args.propertyNameIds[i];
-            if (id == ShaderID.Y   ) _textures.y    = args.textures[i];
-            if (id == ShaderID.CbCr) _textures.cbcr = args.textures[i];
+            var tex = args.textures[i];
+            if (id == ShaderID.Y)
+                _muxMaterial.SetTexture(ShaderID.Y, tex);
+            else if (id == ShaderID.CbCr)
+                _muxMaterial.SetTexture(ShaderID.CbCr, tex);
         }
 
         if (args.projectionMatrix.HasValue)
@@ -97,8 +98,11 @@ sealed class Controller : MonoBehaviour
         for (var i = 0; i < args.textures.Count; i++)
         {
             var id = args.propertyNameIds[i];
-            if (id == ShaderID.Mask ) _textures.mask  = args.textures[i];
-            if (id == ShaderID.Depth) _textures.depth = args.textures[i];
+            var tex = args.textures[i];
+            if (id == ShaderID.Mask )
+                _muxMaterial.SetTexture(ShaderID.Mask, tex);
+            else if (id == ShaderID.Depth)
+                _muxMaterial.SetTexture(ShaderID.Depth, tex);
         }
     }
 
@@ -154,17 +158,12 @@ sealed class Controller : MonoBehaviour
     {
         _statusText.text = StatusText;
 
+        // Parameter update
         var range = new Vector2(_minDepth, _maxDepth);
-
-        // Camera background material update
         _bgMaterial.SetVector(ShaderID.Range, range);
-
-        // NDI sender RT update (multiplexing)
         _muxMaterial.SetVector(ShaderID.Range, range);
-        _muxMaterial.SetTexture(ShaderID.Y    , _textures.y    );
-        _muxMaterial.SetTexture(ShaderID.CbCr , _textures.cbcr );
-        _muxMaterial.SetTexture(ShaderID.Mask , _textures.mask );
-        _muxMaterial.SetTexture(ShaderID.Depth, _textures.depth);
+
+        // NDI sender RT update
         Graphics.Blit(null, _senderRT, _muxMaterial, 0);
     }
 
