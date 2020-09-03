@@ -13,27 +13,45 @@ sealed class Controller : MonoBehaviour
     [Space]
     [SerializeField] Transform _cameraTransform = null;
     [SerializeField] ARCameraManager _cameraManager = null;
+    [SerializeField] ARCameraBackground _cameraBackground = null;
     [SerializeField] AROcclusionManager _occlusionManager = null;
     [Space]
+    [SerializeField] float _minDepth = 0.2f;
+    [SerializeField] float _maxDepth = 3.2f;
+    [Space]
     [SerializeField] Text _statusText = null;
-    [SerializeField] RawImage _monitorImage = null;
 
     #endregion
 
     #region Hidden external asset reference
 
     [SerializeField, HideInInspector] NdiResources _ndiResources = null;
-    [SerializeField, HideInInspector] Shader _monitorShader = null;
+    [SerializeField, HideInInspector] Shader _shader = null;
+
+    #endregion
+
+    #region Shader IDs
+
+    static class ShaderID
+    {
+        public static int Y = Shader.PropertyToID("_textureY");
+        public static int CbCr = Shader.PropertyToID("_textureCbCr");
+        public static int Mask = Shader.PropertyToID("_HumanStencil");
+        public static int Depth = Shader.PropertyToID("_EnvironmentDepth");
+        public static int Range = Shader.PropertyToID("_DepthRange");
+    }
 
     #endregion
 
     #region Internal-use objects
 
-    const int _width = 1024;
-    const int _height = 768;
+    const int _width = 2048;
+    const int _height = 1024;
 
-    RenderTexture _monitorRT;
-    Material _monitorMaterial;
+    Material _bgMaterial;
+    Material _muxMaterial;
+
+    RenderTexture _senderRT;
 
     #endregion
 
@@ -49,38 +67,14 @@ sealed class Controller : MonoBehaviour
         var text = $"Position: ({pos.x}, {pos.y}, {pos.z})\n";
         text += $"Rotation: ({rot.x}, {rot.y}, {rot.z})";
 
-        if (_textures.stencil != null)
-        {
-            text += $"\nstencil: {_textures.stencil.width} x";
-            text += $"{_textures.stencil.height}";
-        }
-
-        if (_textures.depth != null)
-        {
-            text += $"\ndepth: {_textures.depth.width} x";
-            text += $"{_textures.depth.height}";
-        }
-
         return text;
-    }
-
-    #endregion
-
-    #region Shader IDs
-
-    static class ShaderID
-    {
-        public static int Y = Shader.PropertyToID("_textureY");
-        public static int CbCr = Shader.PropertyToID("_textureCbCr");
-        public static int Stencil = Shader.PropertyToID("_HumanStencil");
-        public static int Depth = Shader.PropertyToID("_EnvironmentDepth");
     }
 
     #endregion
 
     #region Camera events
 
-    (Texture2D y, Texture2D cbcr, Texture2D stencil, Texture2D depth) _textures;
+    (Texture2D y, Texture2D cbcr, Texture2D mask, Texture2D depth) _textures;
 
     void OnCameraFrameReceived(ARCameraFrameEventArgs args)
     {
@@ -97,8 +91,8 @@ sealed class Controller : MonoBehaviour
         for (var i = 0; i < args.textures.Count; i++)
         {
             var id = args.propertyNameIds[i];
-            if (id == ShaderID.Stencil) _textures.stencil = args.textures[i];
-            if (id == ShaderID.Depth  ) _textures.depth   = args.textures[i];
+            if (id == ShaderID.Mask ) _textures.mask  = args.textures[i];
+            if (id == ShaderID.Depth) _textures.depth = args.textures[i];
         }
     }
 
@@ -108,23 +102,34 @@ sealed class Controller : MonoBehaviour
 
     void Start()
     {
-        _monitorRT = new RenderTexture(_width, _height, 0);
-        _monitorRT.Create();
+        // Shader setup
+        _bgMaterial = new Material(_shader);
+        _bgMaterial.EnableKeyword("RCAM_MONITOR");
 
-        _monitorMaterial = new Material(_monitorShader);
-        _monitorImage.material = _monitorMaterial;
+        _muxMaterial = new Material(_shader);
+        _muxMaterial.EnableKeyword("RCAM_MULTIPLEXER");
 
+        // Custom background material
+        _cameraBackground.customMaterial = _bgMaterial;
+        _cameraBackground.useCustomMaterial = true;
+
+        // Render texture as NDI source
+        _senderRT = new RenderTexture(_width, _height, 0);
+        _senderRT.Create();
+
+        // NDI sender instantiation
         var sender = gameObject.AddComponent<NdiSender>();
         sender.SetResources(_ndiResources);
         sender.ndiName = "Rcam";
         sender.captureMethod = CaptureMethod.Texture;
-        sender.sourceTexture = _monitorRT;
+        sender.sourceTexture = _senderRT;
     }
 
     void OnDestroy()
     {
-        Destroy(_monitorRT);
-        Destroy(_monitorMaterial);
+        Destroy(_bgMaterial);
+        Destroy(_muxMaterial);
+        Destroy(_senderRT);
     }
 
     void OnEnable()
@@ -143,12 +148,18 @@ sealed class Controller : MonoBehaviour
     {
         _statusText.text = StatusText;
 
-        _monitorMaterial.SetTexture(ShaderID.Y      , _textures.y      );
-        _monitorMaterial.SetTexture(ShaderID.CbCr   , _textures.cbcr   );
-        _monitorMaterial.SetTexture(ShaderID.Stencil, _textures.stencil);
-        _monitorMaterial.SetTexture(ShaderID.Depth  , _textures.depth  );
+        var range = new Vector2(_minDepth, _maxDepth);
 
-        Graphics.Blit(null, _monitorRT, _monitorMaterial, 0);
+        // Camera background material update
+        _bgMaterial.SetVector(ShaderID.Range, range);
+
+        // NDI sender RT update (multiplexing)
+        _muxMaterial.SetVector(ShaderID.Range, range);
+        _muxMaterial.SetTexture(ShaderID.Y    , _textures.y    );
+        _muxMaterial.SetTexture(ShaderID.CbCr , _textures.cbcr );
+        _muxMaterial.SetTexture(ShaderID.Mask , _textures.mask );
+        _muxMaterial.SetTexture(ShaderID.Depth, _textures.depth);
+        Graphics.Blit(null, _senderRT, _muxMaterial, 0);
     }
 
     #endregion
