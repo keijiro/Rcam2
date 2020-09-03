@@ -1,0 +1,22 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Code Editors
+/RcamController/.idea
+/RcamController/.vscode
+/RcamController/*.csproj
+/RcamController/*.sln
+*.swp
+
+# Unity
+/RcamController/Library
+/RcamController/Logs
+/RcamController/Temp
+/RcamController/UserSettings
+
+# Xcode
+/RcamController/Xcode

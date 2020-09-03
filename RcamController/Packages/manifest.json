@@ -1,0 +1,23 @@
+{
+  "scopedRegistries": [
+    {
+      "name": "Unity NuGet",
+      "url": "https://unitynuget-registry.azurewebsites.net",
+      "scopes": [ "org.nuget" ]
+    },
+    {
+      "name": "Keijiro",
+      "url": "https://registry.npmjs.com",
+      "scopes": [ "jp.keijiro" ]
+    }
+  ],
+  "dependencies": {
+    "jp.keijiro.klak.ndi": "1.0.8",
+    "com.unity.ugui": "1.0.0",
+    "com.unity.xr.arfoundation": "4.1.0-preview.7",
+    "com.unity.xr.arkit": "4.1.0-preview.7",
+    "com.unity.modules.particlesystem": "1.0.0",
+    "com.unity.modules.vr": "1.0.0",
+    "com.unity.modules.xr": "1.0.0"
+  }
+}
