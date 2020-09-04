@@ -48,6 +48,8 @@ sealed class Controller : MonoBehaviour
     const int _width = 2048;
     const int _height = 1024;
 
+    NdiSender _ndiSender;
+
     Matrix4x4 _projection;
 
     Material _bgMaterial;
@@ -57,7 +59,7 @@ sealed class Controller : MonoBehaviour
 
     #endregion
 
-    #region Internal-use properties
+    #region Internal-use properties and methods
 
     string StatusText => MakeStatusText();
 
@@ -72,6 +74,12 @@ sealed class Controller : MonoBehaviour
 
         return text;
     }
+
+    Metadata BuildMetadata()
+      => new Metadata { CameraPosition = _cameraTransform.position,
+                        CameraRotation = _cameraTransform.rotation,
+                        DepthRange = new Vector2(_minDepth, _maxDepth),
+                        ProjectionMatrix = _projection };
 
     #endregion
 
@@ -128,11 +136,11 @@ sealed class Controller : MonoBehaviour
         _senderRT.Create();
 
         // NDI sender instantiation
-        var sender = gameObject.AddComponent<NdiSender>();
-        sender.SetResources(_ndiResources);
-        sender.ndiName = "Rcam";
-        sender.captureMethod = CaptureMethod.Texture;
-        sender.sourceTexture = _senderRT;
+        _ndiSender = gameObject.AddComponent<NdiSender>();
+        _ndiSender.SetResources(_ndiResources);
+        _ndiSender.ndiName = "Rcam";
+        _ndiSender.captureMethod = CaptureMethod.Texture;
+        _ndiSender.sourceTexture = _senderRT;
     }
 
     void OnDestroy()
@@ -165,6 +173,9 @@ sealed class Controller : MonoBehaviour
 
         // NDI sender RT update
         Graphics.Blit(null, _senderRT, _muxMaterial, 0);
+
+        // Metadata
+        _ndiSender.metadata = BuildMetadata().Serialize();
     }
 
     #endregion
