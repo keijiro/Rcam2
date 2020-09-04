@@ -12,7 +12,7 @@ float2 _DepthRange;
 // Hue encoding
 float3 Hue2RGB(float hue)
 {
-    float h = saturate(hue) * 6 - 2;
+    float h = hue * 6 - 2;
     float r = abs(h - 1) - 1;
     float g = 2 - abs(h);
     float b = 2 - abs(h - 2);
@@ -44,23 +44,27 @@ float4 Fragment(float4 vertex : SV_Position,
 {
 #ifdef RCAM_MULTIPLEXER
 
-    float2 uv = frac(texCoord * float2(2, 1));
+    float4 tc = frac(texCoord.xyxy * float4(1, 1, 2, 2));
 
     // Texture samples
-    float y = tex2D(_textureY, uv).x;
-    float2 cbcr = tex2D(_textureCbCr, uv).xy;
-    float mask = tex2D(_HumanStencil, uv).x;
-    float depth = tex2D(_EnvironmentDepth, uv).x;
+    float y = tex2D(_textureY, tc.zy).x;
+    float2 cbcr = tex2D(_textureCbCr, tc.zy).xy;
+    float mask = tex2D(_HumanStencil, tc.zw).x;
+    float depth = tex2D(_EnvironmentDepth, tc.zw).x;
 
     // Color plane
     float3 c1 = YCbCrToSRGB(y, cbcr);
 
     // Depth plane
     depth = (depth - _DepthRange.x) / (_DepthRange.y - _DepthRange.x);
-    float3 c2 = Hue2RGB(depth) * mask;
+    float3 c2 = Hue2RGB(saturate(depth) * 0.99);
+
+    // Mask plane
+    float3 c3 = mask;
 
     // Output
-    return float4(GammaToLinearSpace(texCoord.x < 0.5 ? c1 : c2), 1);
+    float3 srgb = tc.x < 0.5 ? c1 : (tc.y < 0.5 ? c2 : c3);
+    return float4(GammaToLinearSpace(srgb), 1);
 
 #endif
 
