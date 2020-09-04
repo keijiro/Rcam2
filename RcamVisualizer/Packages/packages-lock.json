@@ -66,13 +66,20 @@
       "url": "https://packages.unity.com"
     },
     "jp.keijiro.klak.ndi": {
-      "version": "1.0.9",
+      "version": "1.0.10",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.screencapture": "1.0.0",
         "org.nuget.system.memory": "4.5.3"
       },
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.test-assets": {
+      "version": "1.0.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
       "url": "https://registry.npmjs.com"
     },
     "org.nuget.system.buffers": {

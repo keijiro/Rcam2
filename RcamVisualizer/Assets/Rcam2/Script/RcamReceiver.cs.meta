@@ -3,7 +3,10 @@ guid: b5c2a4dd708ccfa41b5605c580ccde71
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _ndiReceiver: {instanceID: 0}
+  - _mainCamera: {instanceID: 0}
+  - _demuxShader: {fileID: 4800000, guid: cf3697b301fe1f14ba7a938dd006fd1c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

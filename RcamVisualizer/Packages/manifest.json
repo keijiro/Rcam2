@@ -16,8 +16,9 @@
     }
   ],
   "dependencies": {
+    "jp.keijiro.test-assets": "1.0.1",
+    "jp.keijiro.klak.ndi": "1.0.10",
     "com.unity.render-pipelines.high-definition": "8.2.0",
-    "jp.keijiro.klak.ndi": "1.0.9",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.physics": "1.0.0",
     "com.unity.modules.uielements": "1.0.0"
