@@ -48,6 +48,10 @@ sealed class Controller : MonoBehaviour
     const int _width = 2048;
     const int _height = 1024;
 
+    NdiSender _ndiSender;
+
+    Matrix4x4 _projection;
+
     Material _bgMaterial;
     Material _muxMaterial;
 
@@ -55,7 +59,7 @@ sealed class Controller : MonoBehaviour
 
     #endregion
 
-    #region Internal-use properties
+    #region Internal-use properties and methods
 
     string StatusText => MakeStatusText();
 
@@ -65,25 +69,36 @@ sealed class Controller : MonoBehaviour
         var rot = _cameraTransform.rotation.eulerAngles;
 
         var text = $"Position: ({pos.x}, {pos.y}, {pos.z})\n";
-        text += $"Rotation: ({rot.x}, {rot.y}, {rot.z})";
+        text += $"Rotation: ({rot.x}, {rot.y}, {rot.z})\n";
+        text += $"Projection: {_projection}";
 
         return text;
     }
 
+    Metadata BuildMetadata()
+      => new Metadata { CameraPosition = _cameraTransform.position,
+                        CameraRotation = _cameraTransform.rotation,
+                        DepthRange = new Vector2(_minDepth, _maxDepth),
+                        ProjectionMatrix = _projection };
+
     #endregion
 
     #region Camera events
-
-    (Texture2D y, Texture2D cbcr, Texture2D mask, Texture2D depth) _textures;
 
     void OnCameraFrameReceived(ARCameraFrameEventArgs args)
     {
         for (var i = 0; i < args.textures.Count; i++)
         {
             var id = args.propertyNameIds[i];
-            if (id == ShaderID.Y   ) _textures.y    = args.textures[i];
-            if (id == ShaderID.CbCr) _textures.cbcr = args.textures[i];
+            var tex = args.textures[i];
+            if (id == ShaderID.Y)
+                _muxMaterial.SetTexture(ShaderID.Y, tex);
+            else if (id == ShaderID.CbCr)
+                _muxMaterial.SetTexture(ShaderID.CbCr, tex);
         }
+
+        if (args.projectionMatrix.HasValue)
+            _projection = args.projectionMatrix.Value;
     }
 
     void OnOcclusionFrameReceived(AROcclusionFrameEventArgs args)
@@ -91,8 +106,11 @@ sealed class Controller : MonoBehaviour
         for (var i = 0; i < args.textures.Count; i++)
         {
             var id = args.propertyNameIds[i];
-            if (id == ShaderID.Mask ) _textures.mask  = args.textures[i];
-            if (id == ShaderID.Depth) _textures.depth = args.textures[i];
+            var tex = args.textures[i];
+            if (id == ShaderID.Mask )
+                _muxMaterial.SetTexture(ShaderID.Mask, tex);
+            else if (id == ShaderID.Depth)
+                _muxMaterial.SetTexture(ShaderID.Depth, tex);
         }
     }
 
@@ -118,11 +136,11 @@ sealed class Controller : MonoBehaviour
         _senderRT.Create();
 
         // NDI sender instantiation
-        var sender = gameObject.AddComponent<NdiSender>();
-        sender.SetResources(_ndiResources);
-        sender.ndiName = "Rcam";
-        sender.captureMethod = CaptureMethod.Texture;
-        sender.sourceTexture = _senderRT;
+        _ndiSender = gameObject.AddComponent<NdiSender>();
+        _ndiSender.SetResources(_ndiResources);
+        _ndiSender.ndiName = "Rcam";
+        _ndiSender.captureMethod = CaptureMethod.Texture;
+        _ndiSender.sourceTexture = _senderRT;
     }
 
     void OnDestroy()
@@ -148,18 +166,16 @@ sealed class Controller : MonoBehaviour
     {
         _statusText.text = StatusText;
 
+        // Parameter update
         var range = new Vector2(_minDepth, _maxDepth);
-
-        // Camera background material update
         _bgMaterial.SetVector(ShaderID.Range, range);
-
-        // NDI sender RT update (multiplexing)
         _muxMaterial.SetVector(ShaderID.Range, range);
-        _muxMaterial.SetTexture(ShaderID.Y    , _textures.y    );
-        _muxMaterial.SetTexture(ShaderID.CbCr , _textures.cbcr );
-        _muxMaterial.SetTexture(ShaderID.Mask , _textures.mask );
-        _muxMaterial.SetTexture(ShaderID.Depth, _textures.depth);
+
+        // NDI sender RT update
         Graphics.Blit(null, _senderRT, _muxMaterial, 0);
+
+        // Metadata
+        _ndiSender.metadata = BuildMetadata().Serialize();
     }
 
     #endregion
