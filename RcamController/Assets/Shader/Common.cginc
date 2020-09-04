@@ -57,7 +57,7 @@ float4 Fragment(float4 vertex : SV_Position,
 
     // Depth plane
     depth = (depth - _DepthRange.x) / (_DepthRange.y - _DepthRange.x);
-    float3 c2 = Hue2RGB(saturate(depth) * 0.99);
+    float3 c2 = Hue2RGB(clamp(depth, 0, 0.8));
 
     // Mask plane
     float3 c3 = mask;
