@@ -12,7 +12,7 @@ class Tester : MonoBehaviour
         var xml = _ndiReceiver.metadata;
         if (xml == null || xml.Length == 0) return;
 
-        var metadata = Metadata.Deserialize(xml.Substring(9, xml.Length - 9 - 4));
+        var metadata = Metadata.Deserialize(xml);
 
         Debug.Log(metadata.CameraPosition);
     }
