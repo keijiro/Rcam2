@@ -22,17 +22,17 @@ sealed class RcamReceiver : MonoBehaviour
 
     #endregion
 
-    #region Extracted image components
-
-    (RenderTexture color, RenderTexture depth) _textures;
+    #region Public accessor properties
 
     public RenderTexture ColorTexture => _textures.color;
     public RenderTexture DepthTexture => _textures.depth;
+    public Matrix4x4 ProjectionMatrix => _metadata.ProjectionMatrix;
 
     #endregion
 
     #region Runtime objects
 
+    (RenderTexture color, RenderTexture depth) _textures;
     Metadata _metadata;
     Material _demuxMaterial;
 
