@@ -14,12 +14,14 @@ void Vertex(float4 vertex : POSITION,
 float4 Fragment(float4 vertex : SV_Position,
                 float2 texCoord : TEXCOORD0) : SV_Target
 {
-    return tex2D(_MainTex, texCoord * float2(0.5, 1));
+    float3 rgb = tex2D(_MainTex, texCoord * float2(0.5, 1)).xyz;
+    float mask = tex2D(_MainTex, texCoord / 2 + float2(0.5, 0)).x;
+    return float4(rgb, mask);
 }
 
 #endif
 
-#ifdef RCAM_DEMUX_DEPTH_MASK
+#ifdef RCAM_DEMUX_DEPTH
 
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
 
@@ -44,14 +46,10 @@ float RGB2Depth(float3 rgb)
     return lerp(_DepthRange.x, _DepthRange.y, hue);
 }
 
-void Fragment(float4 vertex : SV_Position,
-              float2 texCoord : TEXCOORD,
-              out float4 depth : SV_Target0,
-              out float4 mask : SV_Target1)
+float4 Fragment(float4 vertex : SV_Position,
+                float2 texCoord : TEXCOORD) : SV_Target
 {
-    texCoord /= 2;
-    depth = RGB2Depth(tex2D(_MainTex, texCoord + float2(0.5, 0.5)).xyz);
-    mask = tex2D(_MainTex, texCoord + float2(0.5, 0)).x;
+    return RGB2Depth(tex2D(_MainTex, texCoord / 2 + float2(0.5, 0.5)).xyz);
 }
 
 #endif

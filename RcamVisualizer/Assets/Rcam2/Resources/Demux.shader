@@ -16,7 +16,7 @@ Shader "Hidden/Rcam2/Demux"
         Pass
         {
             HLSLPROGRAM
-            #define RCAM_DEMUX_DEPTH_MASK
+            #define RCAM_DEMUX_DEPTH
             #include "Demux.hlsl"
             #pragma vertex Vertex
             #pragma fragment Fragment

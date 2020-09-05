@@ -4,12 +4,25 @@ using UnityEngine.Rendering.HighDefinition;
 
 namespace Rcam2 {
 
+//
+// HDRP custom fullscreen pass for drawing camera images
+//
 [System.Serializable]
 sealed class RcamBackgroundPass : CustomPass
 {
+    #region External scene object references
+
     [SerializeField] RcamReceiver _receiver = null;
 
+    #endregion
+
+    #region Runtime objects
+
     Material _material;
+
+    #endregion
+
+    #region CustomPass implementation
 
     protected override void Setup
       (ScriptableRenderContext renderContext, CommandBuffer cmd)
@@ -23,13 +36,10 @@ sealed class RcamBackgroundPass : CustomPass
       (ScriptableRenderContext renderContext, CommandBuffer cmd,
        HDCamera hdCamera, CullingResults cullingResult)
     {
-        if (_receiver != null && _receiver.ColorTexture != null)
-        {
-            _material.SetTexture("_ColorTexture", _receiver.ColorTexture);
-            _material.SetTexture("_DepthTexture", _receiver.DepthTexture);
-            _material.SetTexture("_MaskTexture", _receiver.MaskTexture);
-            CoreUtils.DrawFullScreen(cmd, _material, shaderPassId: 0);
-        }
+        if (_receiver == null || _receiver.ColorTexture == null) return;
+        _material.SetTexture("_ColorTexture", _receiver.ColorTexture);
+        _material.SetTexture("_DepthTexture", _receiver.DepthTexture);
+        CoreUtils.DrawFullScreen(cmd, _material, null, 0);
     }
 
     protected override void Cleanup()
@@ -39,6 +49,8 @@ sealed class RcamBackgroundPass : CustomPass
         else
             Object.DestroyImmediate(_material);
     }
+
+    #endregion
 }
 
 } // namespace Rcam2

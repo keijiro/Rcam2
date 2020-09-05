@@ -9,7 +9,7 @@ namespace Rcam2 {
 //
 sealed class RcamReceiver : MonoBehaviour
 {
-    #region External object references
+    #region External scene object references
 
     [SerializeField] NdiReceiver _ndiReceiver = null;
     [SerializeField] Camera _mainCamera = null;
@@ -24,17 +24,15 @@ sealed class RcamReceiver : MonoBehaviour
 
     #region Extracted image components
 
-    (RenderTexture color, RenderTexture depth, RenderTexture mask) _textures;
+    (RenderTexture color, RenderTexture depth) _textures;
 
     public RenderTexture ColorTexture => _textures.color;
     public RenderTexture DepthTexture => _textures.depth;
-    public RenderTexture MaskTexture => _textures.mask;
 
     #endregion
 
-    #region Private objects
+    #region Runtime objects
 
-    RenderBuffer[] _mrt = new RenderBuffer[2];
     Metadata _metadata;
     Material _demuxMaterial;
 
@@ -49,7 +47,6 @@ sealed class RcamReceiver : MonoBehaviour
     {
         Destroy(_textures.color);
         Destroy(_textures.depth);
-        Destroy(_textures.mask);
         Destroy(_demuxMaterial);
     }
 
@@ -65,15 +62,17 @@ sealed class RcamReceiver : MonoBehaviour
 
     void RetrieveAndApplyMetadata()
     {
+        // Deserialization
         var xml = _ndiReceiver.metadata;
         if (xml == null || xml.Length == 0) return;
-
         _metadata = Metadata.Deserialize(xml);
 
-        var proj = _metadata.ProjectionMatrix;
-        proj[1, 1] /= (2388.0f * 9) / (16 * 1668);
+        // Compensate the aspect ratio difference (iPad Pro vs 16:9)
+        _metadata.ProjectionMatrix =
+          MatrixUtil.FixProjectionAspectRatio(_metadata.ProjectionMatrix);
 
-        _mainCamera.projectionMatrix = proj;
+        // Camera update with the metadata
+        _mainCamera.projectionMatrix = _metadata.ProjectionMatrix;
         _mainCamera.transform.position = _metadata.CameraPosition;
         _mainCamera.transform.rotation = _metadata.CameraRotation;
     }
@@ -87,31 +86,23 @@ sealed class RcamReceiver : MonoBehaviour
         var source = _ndiReceiver.texture;
         if (source == null) return;
 
+        // Lazy initialization
         if (_textures.color == null) InitializeTextures(source);
 
-        _demuxMaterial.SetVector("_DepthRange", _metadata.DepthRange);
+        // Parameters from metadata
+        _demuxMaterial.SetVector(ShaderID.DepthRange, _metadata.DepthRange);
 
+        // Blit (color/depth)
         Graphics.Blit(source, _textures.color, _demuxMaterial, 0);
-
-        _mrt[0] = _textures.depth.colorBuffer;
-        _mrt[1] = _textures.mask.colorBuffer;
-
-        Graphics.SetRenderTarget(_mrt, _textures.depth.depthBuffer);
-        Graphics.Blit(source, _demuxMaterial, 1);
+        Graphics.Blit(source, _textures.depth, _demuxMaterial, 1);
     }
 
     void InitializeTextures(RenderTexture source)
     {
-        var w = source.width;
-        var h = source.height;
-
-        _textures.color = new RenderTexture(w / 2, h, 0);
-
-        _textures.depth =
-          new RenderTexture(w / 2, h / 2, 0, RenderTextureFormat.RHalf);
-
-        _textures.mask =
-          new RenderTexture(w / 2, h / 2, 0, RenderTextureFormat.R8);
+        var w = source.width / 2;
+        var h = source.height / 2;
+        _textures.color = new RenderTexture(w, h * 2, 0);
+        _textures.depth = new RenderTexture(w, h, 0, RenderTextureFormat.RHalf);
     }
 
     #endregion
