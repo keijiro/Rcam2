@@ -67,10 +67,6 @@ sealed class RcamReceiver : MonoBehaviour
         if (xml == null || xml.Length == 0) return;
         _metadata = Metadata.Deserialize(xml);
 
-        // Compensate the aspect ratio difference (iPad Pro vs 16:9)
-        _metadata.ProjectionMatrix =
-          MatrixUtil.FixProjectionAspectRatio(_metadata.ProjectionMatrix);
-
         // Camera update with the metadata
         _mainCamera.projectionMatrix = _metadata.ProjectionMatrix;
         _mainCamera.transform.position = _metadata.CameraPosition;

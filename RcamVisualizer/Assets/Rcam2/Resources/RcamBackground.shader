@@ -22,9 +22,6 @@
         float2 uv =
           (varyings.positionCS.xy + float2(0.5, 0.5)) * _ScreenSize.zw;
 
-        // Compensate the aspect ratio difference between iPad Pro vs 16:9
-        uv.y = (uv.y - 0.5) * (2388.0 * 9) / (16 * 1668) + 0.5;
-
         // Output
         outColor = tex2D(_ColorTexture, uv);
         outDepth = DistanceToDepth(tex2D(_DepthTexture, uv).x);
