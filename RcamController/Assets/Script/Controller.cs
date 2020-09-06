@@ -8,42 +8,32 @@ namespace Rcam2 {
 
 sealed class Controller : MonoBehaviour
 {
-    #region Editable attributes
+    #region External scene object references
 
     [Space]
-    [SerializeField] Transform _cameraTransform = null;
+    [SerializeField] Camera _camera = null;
     [SerializeField] ARCameraManager _cameraManager = null;
     [SerializeField] ARCameraBackground _cameraBackground = null;
     [SerializeField] AROcclusionManager _occlusionManager = null;
-    [Space]
-    [SerializeField] float _minDepth = 0.2f;
-    [SerializeField] float _maxDepth = 3.2f;
-    [Space]
-    [SerializeField] Text _statusText = null;
 
     #endregion
 
-    #region Hidden external asset reference
+    #region Editable parameters
+
+    [Space]
+    [SerializeField] float _minDepth = 0.2f;
+    [SerializeField] float _maxDepth = 3.2f;
+
+    #endregion
+
+    #region Hidden external asset references
 
     [SerializeField, HideInInspector] NdiResources _ndiResources = null;
     [SerializeField, HideInInspector] Shader _shader = null;
 
     #endregion
 
-    #region Shader IDs
-
-    static class ShaderID
-    {
-        public static int Y = Shader.PropertyToID("_textureY");
-        public static int CbCr = Shader.PropertyToID("_textureCbCr");
-        public static int Mask = Shader.PropertyToID("_HumanStencil");
-        public static int Depth = Shader.PropertyToID("_EnvironmentDepth");
-        public static int Range = Shader.PropertyToID("_DepthRange");
-    }
-
-    #endregion
-
-    #region Internal-use objects
+    #region Internal objects
 
     const int _width = 2048;
     const int _height = 1024;
@@ -59,58 +49,63 @@ sealed class Controller : MonoBehaviour
 
     #endregion
 
-    #region Internal-use properties and methods
+    #region Internal methods
 
-    string StatusText => MakeStatusText();
-
-    string MakeStatusText()
-    {
-        var pos = _cameraTransform.position;
-        var rot = _cameraTransform.rotation.eulerAngles;
-
-        var text = $"Position: ({pos.x}, {pos.y}, {pos.z})\n";
-        text += $"Rotation: ({rot.x}, {rot.y}, {rot.z})\n";
-        text += $"Projection: {_projection}";
-
-        return text;
-    }
-
-    Metadata BuildMetadata()
-      => new Metadata { CameraPosition = _cameraTransform.position,
-                        CameraRotation = _cameraTransform.rotation,
+    Metadata MakeMetadata()
+      => new Metadata { CameraPosition = _camera.transform.position,
+                        CameraRotation = _camera.transform.rotation,
                         DepthRange = new Vector2(_minDepth, _maxDepth),
                         ProjectionMatrix = _projection };
 
     #endregion
 
-    #region Camera events
+    #region Camera callbacks
 
     void OnCameraFrameReceived(ARCameraFrameEventArgs args)
     {
+        // We expect there is at least one texture.
+        if (args.textures.Count == 0) return;
+
+        // Try receiving Y/CbCr textures.
         for (var i = 0; i < args.textures.Count; i++)
         {
             var id = args.propertyNameIds[i];
             var tex = args.textures[i];
-            if (id == ShaderID.Y)
-                _muxMaterial.SetTexture(ShaderID.Y, tex);
-            else if (id == ShaderID.CbCr)
-                _muxMaterial.SetTexture(ShaderID.CbCr, tex);
+            if (id == ShaderID.TextureY)
+                _muxMaterial.SetTexture(ShaderID.TextureY, tex);
+            else if (id == ShaderID.TextureCbCr)
+                _muxMaterial.SetTexture(ShaderID.TextureCbCr, tex);
         }
 
+        // Try receiving the projection matrix.
         if (args.projectionMatrix.HasValue)
+        {
             _projection = args.projectionMatrix.Value;
+
+            // Aspect ratio compensation (camera vs. 16:9)
+            _projection[1, 1] *= (16.0f / 9) / _camera.aspect;
+        }
+
+        // Use the first texture to calculate the source texture aspect ratio.
+        var tex1 = args.textures[0];
+        var texAspect = (float)tex1.width / tex1.height;
+
+        // Aspect ratio compensation factor for the multiplexer
+        var aspectFix = texAspect / (16.0f / 9);
+        _muxMaterial.SetFloat(ShaderID.AspectFix, aspectFix);
     }
 
     void OnOcclusionFrameReceived(AROcclusionFrameEventArgs args)
     {
+        // Try receiving stencil/depth textures.
         for (var i = 0; i < args.textures.Count; i++)
         {
             var id = args.propertyNameIds[i];
             var tex = args.textures[i];
-            if (id == ShaderID.Mask )
-                _muxMaterial.SetTexture(ShaderID.Mask, tex);
-            else if (id == ShaderID.Depth)
-                _muxMaterial.SetTexture(ShaderID.Depth, tex);
+            if (id == ShaderID.HumanStencil)
+                _muxMaterial.SetTexture(ShaderID.HumanStencil, tex);
+            else if (id == ShaderID.EnvironmentDepth)
+                _muxMaterial.SetTexture(ShaderID.EnvironmentDepth, tex);
         }
     }
 
@@ -131,7 +126,7 @@ sealed class Controller : MonoBehaviour
         _cameraBackground.customMaterial = _bgMaterial;
         _cameraBackground.useCustomMaterial = true;
 
-        // Render texture as NDI source
+        // Render texture for the NDI source
         _senderRT = new RenderTexture(_width, _height, 0);
         _senderRT.Create();
 
@@ -152,30 +147,30 @@ sealed class Controller : MonoBehaviour
 
     void OnEnable()
     {
+        // Camera callback setup
         _cameraManager.frameReceived += OnCameraFrameReceived;
         _occlusionManager.frameReceived += OnOcclusionFrameReceived;
     }
 
     void OnDisable()
     {
+        // Camera callback termination
         _cameraManager.frameReceived -= OnCameraFrameReceived;
         _occlusionManager.frameReceived -= OnOcclusionFrameReceived;
     }
 
     void Update()
     {
-        _statusText.text = StatusText;
-
         // Parameter update
         var range = new Vector2(_minDepth, _maxDepth);
-        _bgMaterial.SetVector(ShaderID.Range, range);
-        _muxMaterial.SetVector(ShaderID.Range, range);
+        _bgMaterial.SetVector(ShaderID.DepthRange, range);
+        _muxMaterial.SetVector(ShaderID.DepthRange, range);
 
         // NDI sender RT update
         Graphics.Blit(null, _senderRT, _muxMaterial, 0);
 
         // Metadata
-        _ndiSender.metadata = BuildMetadata().Serialize();
+        _ndiSender.metadata = MakeMetadata().Serialize();
     }
 
     #endregion

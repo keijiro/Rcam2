@@ -1,13 +1,15 @@
 #include "UnityCG.cginc"
 
-// Textures from AR Foundation
+// Uniforms from AR Foundation
 sampler2D _textureY;
 sampler2D _textureCbCr;
 sampler2D _HumanStencil;
 sampler2D _EnvironmentDepth;
+float4x4 _UnityDisplayTransform;
 
 // Rcam parameters
 float2 _DepthRange;
+float _AspectFix;
 
 // Hue encoding
 float3 Hue2RGB(float hue)
@@ -35,7 +37,7 @@ void Vertex(float4 vertex : POSITION,
             out float2 outTexCoord : TEXCOORD)
 {
     outVertex = UnityObjectToClipPos(vertex);
-    outTexCoord = float2(texCoord.x, 1 - texCoord.y);
+    outTexCoord = texCoord;
 }
 
 // Fragment shader
@@ -45,6 +47,9 @@ float4 Fragment(float4 vertex : SV_Position,
 #ifdef RCAM_MULTIPLEXER
 
     float4 tc = frac(texCoord.xyxy * float4(1, 1, 2, 2));
+
+    // Aspect ration compensation & vertical flip
+    tc.yw = (0.5 - tc.yw) * _AspectFix + 0.5;
 
     // Texture samples
     float y = tex2D(_textureY, tc.zy).x;
@@ -70,11 +75,14 @@ float4 Fragment(float4 vertex : SV_Position,
 
 #ifdef RCAM_MONITOR
 
+    // Texture transform
+    float2 uv = mul(float3(texCoord, 1), _UnityDisplayTransform).xy;
+
     // Texture samples
-    float y = tex2D(_textureY, texCoord).x;
-    float2 cbcr = tex2D(_textureCbCr, texCoord).xy;
-    float mask = tex2D(_HumanStencil, texCoord).x;
-    float depth = tex2D(_EnvironmentDepth, texCoord).x;
+    float y = tex2D(_textureY, uv).x;
+    float2 cbcr = tex2D(_textureCbCr, uv).xy;
+    float mask = tex2D(_HumanStencil, uv).x;
+    float depth = tex2D(_EnvironmentDepth, uv).x;
 
     // Color
     float3 srgb = YCbCrToSRGB(y, cbcr);
