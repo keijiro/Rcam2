@@ -16,9 +16,9 @@ class VFXRcamBinder : VFXBinderBase
       { get => (string)_depthMapProperty;
         set => _depthMapProperty = value; }
 
-    public string ReprojectionVectorProperty
-      { get => (string)_reprojectionVectorProperty;
-        set => _reprojectionVectorProperty = value; }
+    public string ProjectionVectorProperty
+      { get => (string)_projectionVectorProperty;
+        set => _projectionVectorProperty = value; }
 
     public string InverseViewMatrixProperty
       { get => (string)_inverseViewMatrixProperty;
@@ -31,7 +31,7 @@ class VFXRcamBinder : VFXBinderBase
     ExposedProperty _depthMapProperty = "DepthMap";
 
     [VFXPropertyBinding("UnityEngine.Vector4"), SerializeField]
-    ExposedProperty _reprojectionVectorProperty = "ReprojectionVector";
+    ExposedProperty _projectionVectorProperty = "ProjectionVector";
 
     [VFXPropertyBinding("UnityEngine.Matrix4x4"), SerializeField]
     ExposedProperty _inverseViewMatrixProperty = "InverseViewMatrix";
@@ -43,14 +43,14 @@ class VFXRcamBinder : VFXBinderBase
       => Camera != null && Receiver != null &&
          component.HasTexture(_colorMapProperty) &&
          component.HasTexture(_depthMapProperty) &&
-         component.HasVector4(_reprojectionVectorProperty) &&
+         component.HasVector4(_projectionVectorProperty) &&
          component.HasMatrix4x4(_inverseViewMatrixProperty);
 
     public override void UpdateBinding(VisualEffect component)
     {
         component.SetTexture(_colorMapProperty, Receiver.ColorTexture);
         component.SetTexture(_depthMapProperty, Receiver.DepthTexture);
-        component.SetVector4(_reprojectionVectorProperty, ReprojectionVector);
+        component.SetVector4(_projectionVectorProperty, MakeProjectionVector());
         component.SetMatrix4x4(_inverseViewMatrixProperty, Camera.cameraToWorldMatrix);
     }
 
@@ -61,9 +61,7 @@ class VFXRcamBinder : VFXBinderBase
         return $"Rcam : {name1}, {name2}";
     }
 
-    Vector4 ReprojectionVector => BuildReprojectionVector();
-
-    Vector4 BuildReprojectionVector()
+    Vector4 MakeProjectionVector()
     {
         var proj = Camera.projectionMatrix;
         return new Vector4(proj[0, 2], proj[1, 2], proj[0, 0], proj[1, 1]);
