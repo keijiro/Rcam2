@@ -168,10 +168,21 @@ sealed class Controller : MonoBehaviour
 
         // NDI sender RT update
         Graphics.Blit(null, _senderRT, _muxMaterial, 0);
-
-        // Metadata
-        _ndiSender.metadata = MakeMetadata().Serialize();
     }
+
+    //
+    // Update the NDI metadata in OnRenderObject
+    //
+    // The camera transform is updated in Application.onBeforeRender, so we
+    // have to update the metadata (containing the camera transform data) after
+    // it. Also we have to do it before the NDI sender update that happens in
+    // WaitForEndOfFrame.
+    //
+    // It may look strange to do this here, but this is the most
+    // straightforward way to collect the latest data.
+    //
+    void OnRenderObject()
+      => _ndiSender.metadata = MakeMetadata().Serialize();
 
     #endregion
 }
