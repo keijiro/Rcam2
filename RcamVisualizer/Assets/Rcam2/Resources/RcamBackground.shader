@@ -24,7 +24,8 @@
 
         // Output
         outColor = tex2D(_ColorTexture, uv);
-        outDepth = lerp(DistanceToDepth(tex2D(_DepthTexture, uv).x), 0, outColor.a);
+        outDepth = DistanceToDepth(tex2D(_DepthTexture, uv).x);
+        //outDepth = lerp(DistanceToDepth(tex2D(_DepthTexture, uv).x), 0.01, outColor.a);
     }
 
     ENDHLSL
