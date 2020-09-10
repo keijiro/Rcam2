@@ -92,6 +92,7 @@ sealed class Controller : MonoBehaviour
 
         // Aspect ratio compensation factor for the multiplexer
         var aspectFix = texAspect / (16.0f / 9);
+        _bgMaterial.SetFloat(ShaderID.AspectFix, aspectFix);
         _muxMaterial.SetFloat(ShaderID.AspectFix, aspectFix);
     }
 

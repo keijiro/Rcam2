@@ -80,6 +80,13 @@
       },
       "url": "https://registry.npmjs.com"
     },
+    "jp.keijiro.klak.vjui": {
+      "version": "1.0.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
     "jp.keijiro.rcam2.metadata": {
       "version": "file:../../RcamMetadata",
       "depth": 0,

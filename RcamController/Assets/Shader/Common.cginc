@@ -91,6 +91,9 @@ float4 Fragment(float4 vertex : SV_Position,
     srgb = lerp(srgb, float3(y, 0, 0), saturate(depth / 2));
     srgb = lerp(float3(0.2, 0.2, 0.5) * y, srgb, mask);
 
+    // Letterboxing with 16:9
+    srgb *= abs(uv.y - 0.5) * 2 < _AspectFix ? 1 : 0.5;
+
     // Output
     return float4(GammaToLinearSpace(srgb), 1);
 
