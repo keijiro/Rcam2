@@ -1,0 +1,11 @@
+{
+    "author": "Keijiro Takahashi",
+    "dependencies": { "org.nuget.system.memory": "4.5.3" },
+    "description": "Defines the Rcam2 metadata structure.",
+    "displayName": "Rcam2 Metadata",
+    "keywords": [ "unity" ],
+    "name": "jp.keijiro.rcam2.metadata",
+    "unity": "2020.1",
+    "unityRelease": "0f1",
+    "version": "1.0.0"
+}

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 namespace Rcam2 {
 
 [StructLayout(LayoutKind.Sequential)]
-struct Metadata
+public struct Metadata
 {
     public Vector3 CameraPosition;
     public Quaternion CameraRotation;

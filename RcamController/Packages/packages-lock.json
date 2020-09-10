@@ -80,6 +80,14 @@
       },
       "url": "https://registry.npmjs.com"
     },
+    "jp.keijiro.rcam2.metadata": {
+      "version": "file:../../RcamMetadata",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "org.nuget.system.memory": "4.5.3"
+      }
+    },
     "org.nuget.system.buffers": {
       "version": "4.4.0",
       "depth": 2,
