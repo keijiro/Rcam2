@@ -4,9 +4,9 @@ using UnityEngine.VFX.Utility;
 
 namespace Rcam2 {
 
-[AddComponentMenu("VFX/Property Binders/Rcam Binder")]
-[VFXBinder("Rcam")]
-class VFXRcamBinder : VFXBinderBase
+[AddComponentMenu("VFX/Property Binders/Rcam/Metadata Binder")]
+[VFXBinder("Rcam/Metadata")]
+class VFXRcamMetadataBinder : VFXBinderBase
 {
     public string ColorMapProperty
       { get => (string)_colorMapProperty;
@@ -58,7 +58,7 @@ class VFXRcamBinder : VFXBinderBase
     {
         var name1 = Camera == null ? "(null)" : Camera.name;
         var name2 = Receiver == null ? "(null)" : Receiver.name;
-        return $"Rcam : {name1}, {name2}";
+        return $"Rcam Metadata : {name1}, {name2}";
     }
 
     Vector4 MakeProjectionVector()

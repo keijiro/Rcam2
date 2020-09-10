@@ -22,11 +22,21 @@ public unsafe struct Metadata
     public fixed byte Toggles[1];
     public fixed byte Knobs[4];
 
+    #endregion
+
+    #region Accessor methods
+
+    public byte GetButtonData(int offset) => Buttons[offset];
+
     public void SetButtonData(int offset, int data)
       => Buttons[offset] = (byte)data;
 
+    public byte GetToggleData(int offset) => Toggles[offset];
+
     public void SetToggleData(int offset, int data)
       => Toggles[offset] = (byte)data;
+
+    public float GetKnobData(int offset) => Knobs[offset] / 255.0f;
 
     public void SetKnobData(int offset, float value)
       => Knobs[offset] = (byte)(value * 255);
