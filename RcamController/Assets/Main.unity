@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 93567376}
   - component: {fileID: 93567377}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Toggle 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,7 +363,19 @@ MonoBehaviour:
   _graphic: {fileID: 534182413}
   _onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Toggle2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &94795347
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +389,7 @@ GameObject:
   - component: {fileID: 94795350}
   - component: {fileID: 94795349}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -445,10 +457,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 94795350}
   _onButtonDown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Button3
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   _onButtonUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Button3
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &94795350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,7 +536,7 @@ GameObject:
   - component: {fileID: 117589513}
   - component: {fileID: 117589512}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,10 +604,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 117589513}
   _onButtonDown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Button1
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   _onButtonUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Button1
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &117589513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1392,6 +1452,7 @@ GameObject:
   - component: {fileID: 778590967}
   - component: {fileID: 778590966}
   - component: {fileID: 778590968}
+  - component: {fileID: 778590969}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -1415,6 +1476,7 @@ MonoBehaviour:
   _cameraManager: {fileID: 1949310061}
   _cameraBackground: {fileID: 1949310060}
   _occlusionManager: {fileID: 1949310064}
+  _input: {fileID: 778590969}
   _minDepth: 0.2
   _maxDepth: 3.2
   _ndiResources: {fileID: 11400000, guid: 69304b86950074db7ba8caba75214004, type: 2}
@@ -1447,6 +1509,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 1949310059}
   _statusText: {fileID: 1303680466}
+--- !u!114 &778590969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778590965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abdf1ee25a19f4a52ab74a0b52524b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &812680115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,7 +1733,7 @@ GameObject:
   - component: {fileID: 1115613578}
   - component: {fileID: 1115613577}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1727,10 +1801,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1115613578}
   _onButtonDown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Button4
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   _onButtonUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Button4
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1115613578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,7 +1957,7 @@ GameObject:
   - component: {fileID: 1303639083}
   - component: {fileID: 1303639084}
   m_Layer: 5
-  m_Name: Knob
+  m_Name: Knob 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1932,7 +2030,19 @@ MonoBehaviour:
   _graphic: {fileID: 600904923}
   _onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Knob1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1303680464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,7 +2133,7 @@ GameObject:
   - component: {fileID: 1375778717}
   - component: {fileID: 1375778718}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Toggle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2094,7 +2204,19 @@ MonoBehaviour:
   _graphic: {fileID: 1760078628}
   _onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Toggle1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1420723731
 GameObject:
   m_ObjectHideFlags: 0
@@ -2496,7 +2618,7 @@ GameObject:
   - component: {fileID: 1622293868}
   - component: {fileID: 1622293867}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2564,10 +2686,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1622293868}
   _onButtonDown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Button2
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   _onButtonUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Button2
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1622293868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2859,7 +3005,7 @@ GameObject:
   - component: {fileID: 1736799481}
   - component: {fileID: 1736799482}
   m_Layer: 5
-  m_Name: Knob
+  m_Name: Knob 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2932,7 +3078,19 @@ MonoBehaviour:
   _graphic: {fileID: 812680117}
   _onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Knob2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1741097383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,7 +3102,7 @@ GameObject:
   - component: {fileID: 1741097384}
   - component: {fileID: 1741097385}
   m_Layer: 5
-  m_Name: Knob
+  m_Name: Knob 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3017,7 +3175,19 @@ MonoBehaviour:
   _graphic: {fileID: 568068588}
   _onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Knob3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1760078626
 GameObject:
   m_ObjectHideFlags: 0
@@ -3259,7 +3429,7 @@ GameObject:
   - component: {fileID: 1887083356}
   - component: {fileID: 1887083357}
   m_Layer: 5
-  m_Name: Knob
+  m_Name: Knob 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3332,7 +3502,19 @@ MonoBehaviour:
   _graphic: {fileID: 1564769724}
   _onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Knob4
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1914619595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3344,7 +3526,7 @@ GameObject:
   - component: {fileID: 1914619596}
   - component: {fileID: 1914619597}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Toggle 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3415,7 +3597,19 @@ MonoBehaviour:
   _graphic: {fileID: 525152154}
   _onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Toggle3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1937012664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,7 +3621,7 @@ GameObject:
   - component: {fileID: 1937012665}
   - component: {fileID: 1937012666}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Toggle 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3498,7 +3692,19 @@ MonoBehaviour:
   _graphic: {fileID: 275344206}
   _onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590969}
+        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
+        m_MethodName: set_Toggle4
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1949310058
 GameObject:
   m_ObjectHideFlags: 0

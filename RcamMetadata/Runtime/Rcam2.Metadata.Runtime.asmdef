@@ -1,3 +1,13 @@
-﻿{
-	"name": "Rcam2.Metadata.Runtime"
+{
+    "name": "Rcam2.Metadata.Runtime",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

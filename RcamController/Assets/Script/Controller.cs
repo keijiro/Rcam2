@@ -15,6 +15,7 @@ sealed class Controller : MonoBehaviour
     [SerializeField] ARCameraManager _cameraManager = null;
     [SerializeField] ARCameraBackground _cameraBackground = null;
     [SerializeField] AROcclusionManager _occlusionManager = null;
+    [SerializeField] InputState _input = null;
 
     #endregion
 
@@ -52,10 +53,15 @@ sealed class Controller : MonoBehaviour
     #region Internal methods
 
     Metadata MakeMetadata()
-      => new Metadata { CameraPosition = _camera.transform.position,
-                        CameraRotation = _camera.transform.rotation,
-                        DepthRange = new Vector2(_minDepth, _maxDepth),
-                        ProjectionMatrix = _projection };
+    {
+        var temp = new Metadata
+          { CameraPosition = _camera.transform.position,
+            CameraRotation = _camera.transform.rotation,
+            ProjectionMatrix = _projection,
+            DepthRange = new Vector2(_minDepth, _maxDepth) };
+        _input.LoadTo(ref temp);
+        return temp;
+    }
 
     #endregion
 
