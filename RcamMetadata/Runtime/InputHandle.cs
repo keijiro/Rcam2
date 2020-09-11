@@ -32,9 +32,9 @@ public sealed class InputHandle : MonoBehaviour
     public bool Toggle3 { get => _toggles[3]; set => _toggles[3] = value; }
 
     public float Knob0 { get => _knobs[0]; set => _knobs[0] = value; }
-    public float Knob1 { get => _knobs[0]; set => _knobs[0] = value; }
-    public float Knob2 { get => _knobs[0]; set => _knobs[0] = value; }
-    public float Knob3 { get => _knobs[0]; set => _knobs[0] = value; }
+    public float Knob1 { get => _knobs[1]; set => _knobs[1] = value; }
+    public float Knob2 { get => _knobs[2]; set => _knobs[2] = value; }
+    public float Knob3 { get => _knobs[3]; set => _knobs[3] = value; }
 
     #endregion
 

@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 93567376}
   - component: {fileID: 93567377}
   m_Layer: 5
-  m_Name: Toggle 2
+  m_Name: Toggle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,8 +365,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Toggle2
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Toggle1
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 94795350}
   - component: {fileID: 94795349}
   m_Layer: 5
-  m_Name: Button 3
+  m_Name: Button 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -459,8 +459,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Button3
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Button2
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -474,8 +474,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Button3
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Button2
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 117589513}
   - component: {fileID: 117589512}
   m_Layer: 5
-  m_Name: Button 1
+  m_Name: Button 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,8 +606,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Button1
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Button0
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -621,8 +621,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Button1
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Button0
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 778590965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abdf1ee25a19f4a52ab74a0b52524b2e, type: 3}
+  m_Script: {fileID: 11500000, guid: da60d09bab43433489a6e7a6013234c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &812680115
@@ -1733,7 +1733,7 @@ GameObject:
   - component: {fileID: 1115613578}
   - component: {fileID: 1115613577}
   m_Layer: 5
-  m_Name: Button 4
+  m_Name: Button 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1803,8 +1803,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Button4
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Button3
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1818,8 +1818,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Button4
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Button3
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1957,7 +1957,7 @@ GameObject:
   - component: {fileID: 1303639083}
   - component: {fileID: 1303639084}
   m_Layer: 5
-  m_Name: Knob 1
+  m_Name: Knob 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2032,8 +2032,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Knob1
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Knob0
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2133,7 +2133,7 @@ GameObject:
   - component: {fileID: 1375778717}
   - component: {fileID: 1375778718}
   m_Layer: 5
-  m_Name: Toggle 1
+  m_Name: Toggle 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2206,8 +2206,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Toggle1
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Toggle0
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2618,7 +2618,7 @@ GameObject:
   - component: {fileID: 1622293868}
   - component: {fileID: 1622293867}
   m_Layer: 5
-  m_Name: Button 2
+  m_Name: Button 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2688,8 +2688,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Button2
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Button1
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2703,8 +2703,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Button2
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Button1
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3005,7 +3005,7 @@ GameObject:
   - component: {fileID: 1736799481}
   - component: {fileID: 1736799482}
   m_Layer: 5
-  m_Name: Knob 2
+  m_Name: Knob 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3080,8 +3080,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Knob2
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Knob1
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3102,7 +3102,7 @@ GameObject:
   - component: {fileID: 1741097384}
   - component: {fileID: 1741097385}
   m_Layer: 5
-  m_Name: Knob 3
+  m_Name: Knob 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3177,8 +3177,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Knob3
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Knob2
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3429,7 +3429,7 @@ GameObject:
   - component: {fileID: 1887083356}
   - component: {fileID: 1887083357}
   m_Layer: 5
-  m_Name: Knob 4
+  m_Name: Knob 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3504,8 +3504,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Knob4
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Knob3
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3526,7 +3526,7 @@ GameObject:
   - component: {fileID: 1914619596}
   - component: {fileID: 1914619597}
   m_Layer: 5
-  m_Name: Toggle 3
+  m_Name: Toggle 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3599,8 +3599,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Toggle3
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Toggle2
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3621,7 +3621,7 @@ GameObject:
   - component: {fileID: 1937012665}
   - component: {fileID: 1937012666}
   m_Layer: 5
-  m_Name: Toggle 4
+  m_Name: Toggle 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3694,8 +3694,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 778590969}
-        m_TargetAssemblyTypeName: Rcam2.InputState, Assembly-CSharp
-        m_MethodName: set_Toggle4
+        m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
+        m_MethodName: set_Toggle3
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
