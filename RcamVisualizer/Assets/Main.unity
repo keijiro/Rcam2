@@ -1598,6 +1598,7 @@ GameObject:
   - component: {fileID: 909593438}
   - component: {fileID: 909593437}
   - component: {fileID: 909593436}
+  - component: {fileID: 909593441}
   m_Layer: 0
   m_Name: Voxel
   m_TagString: Untagged
@@ -1626,13 +1627,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909593434}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cf2f62932c07aa43829901369ecdcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controlType: 2
-  _controlNumber: 3
+  _controlType: 1
+  _controlNumber: 5
   _delayTillOff: 0
 --- !u!114 &909593437
 MonoBehaviour:
@@ -1669,6 +1670,7 @@ MonoBehaviour:
   m_ExecuteInEditor: 0
   m_Bindings:
   - {fileID: 909593437}
+  - {fileID: 909593441}
   m_VisualEffect: {fileID: 909593440}
 --- !u!73398921 &909593439
 VFXRenderer:
@@ -1777,6 +1779,21 @@ VisualEffect:
       - m_Value: 0
         m_Name: Enabled
         m_Overridden: 1
+--- !u!114 &909593441
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909593434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56febb74e8095b429105c58ba204853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _property:
+    m_Name: Throttle
+  ControlNumber: 5
 --- !u!1 &1034916018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,6 +1808,7 @@ GameObject:
   - component: {fileID: 1034916022}
   - component: {fileID: 1034916021}
   - component: {fileID: 1034916020}
+  - component: {fileID: 1034916025}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Untagged
@@ -1819,13 +1837,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034916018}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cf2f62932c07aa43829901369ecdcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controlType: 2
-  _controlNumber: 3
+  _controlType: 1
+  _controlNumber: 4
   _delayTillOff: 0
 --- !u!114 &1034916021
 MonoBehaviour:
@@ -1862,6 +1880,7 @@ MonoBehaviour:
   m_ExecuteInEditor: 0
   m_Bindings:
   - {fileID: 1034916021}
+  - {fileID: 1034916025}
   m_VisualEffect: {fileID: 1034916024}
 --- !u!73398921 &1034916023
 VFXRenderer:
@@ -1970,6 +1989,21 @@ VisualEffect:
       - m_Value: 0
         m_Name: Enabled
         m_Overridden: 1
+--- !u!114 &1034916025
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034916018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56febb74e8095b429105c58ba204853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _property:
+    m_Name: Throttle
+  ControlNumber: 4
 --- !u!1 &1183024214
 GameObject:
   m_ObjectHideFlags: 0
