@@ -15,19 +15,19 @@ class VFXRcamKnobBinder : VFXBinderBase
     [VFXPropertyBinding("System.Single"), SerializeField]
     ExposedProperty _property = "Knob";
 
-    public InputHandle Input = null;
-    public int Index = 0;
+    public int ControlNumber = 0;
 
     public override bool IsValid(VisualEffect component)
-      => Input != null && component.HasFloat(_property);
+      => component.HasFloat(_property);
 
     public override void UpdateBinding(VisualEffect component)
     {
-        component.SetFloat(_property, Input.GetKnob(Index));
+        component.SetFloat
+          (_property, Singletons.InputHandle.GetKnob(ControlNumber));
     }
 
     public override string ToString()
-      => $"Rcan : '{_property}' -> Konb {Index}";
+      => $"Rcan : '{_property}' -> Konb {ControlNumber}";
 }
 
 } // namespace Rcam2

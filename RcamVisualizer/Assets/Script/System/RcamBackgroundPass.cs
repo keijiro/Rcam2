@@ -10,12 +10,6 @@ namespace Rcam2 {
 [System.Serializable]
 sealed class RcamBackgroundPass : CustomPass
 {
-    #region External scene object references
-
-    [SerializeField] RcamReceiver _receiver = null;
-
-    #endregion
-
     #region Runtime objects
 
     Material _material;
@@ -36,9 +30,10 @@ sealed class RcamBackgroundPass : CustomPass
       (ScriptableRenderContext renderContext, CommandBuffer cmd,
        HDCamera hdCamera, CullingResults cullingResult)
     {
-        if (_receiver == null || _receiver.ColorTexture == null) return;
-        _material.SetTexture("_ColorTexture", _receiver.ColorTexture);
-        _material.SetTexture("_DepthTexture", _receiver.DepthTexture);
+        var recv = Singletons.Receiver;
+        if (recv == null || recv.ColorTexture == null) return;
+        _material.SetTexture("_ColorTexture", recv.ColorTexture);
+        _material.SetTexture("_DepthTexture", recv.DepthTexture);
         CoreUtils.DrawFullScreen(cmd, _material, null, 0);
     }
 

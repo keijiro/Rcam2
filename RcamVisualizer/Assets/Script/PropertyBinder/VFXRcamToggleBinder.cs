@@ -15,19 +15,19 @@ class VFXRcamToggleBinder : VFXBinderBase
     [VFXPropertyBinding("System.Boolean"), SerializeField]
     ExposedProperty _property = "Toggle";
 
-    public InputHandle Input = null;
-    public int Index = 0;
+    public int ControlNumber = 0;
 
     public override bool IsValid(VisualEffect component)
-      => Input != null && component.HasBool(_property);
+      => component.HasBool(_property);
 
     public override void UpdateBinding(VisualEffect component)
     {
-        component.SetBool(_property, Input.GetToggle(Index));
+        component.SetBool
+          (_property, Singletons.InputHandle.GetToggle(ControlNumber));
     }
 
     public override string ToString()
-      => $"Rcan : '{_property}' -> Toggle {Index}";
+      => $"Rcan : '{_property}' -> Toggle {ControlNumber}";
 }
 
 } // namespace Rcam2

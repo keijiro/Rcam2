@@ -15,19 +15,19 @@ class VFXRcamButtonBinder : VFXBinderBase
     [VFXPropertyBinding("System.Boolean"), SerializeField]
     ExposedProperty _property = "Button";
 
-    public InputHandle Input = null;
-    public int Index = 0;
+    public int ControlNumber = 0;
 
     public override bool IsValid(VisualEffect component)
-      => Input != null && component.HasBool(_property);
+      => component.HasBool(_property);
 
     public override void UpdateBinding(VisualEffect component)
     {
-        component.SetBool(_property, Input.GetButton(Index));
+        component.SetBool
+          (_property, Singletons.InputHandle.GetButton(ControlNumber));
     }
 
     public override string ToString()
-      => $"Rcan : '{_property}' -> Button {Index}";
+      => $"Rcan : '{_property}' -> Button {ControlNumber}";
 }
 
 } // namespace Rcam2

@@ -7,15 +7,14 @@ sealed class RcamKnobEvent : MonoBehaviour
 {
     [System.Serializable] class FloatEvent : UnityEvent<float> {}
 
-    [SerializeField] InputHandle _input = null;
-    [SerializeField] int _index = 0;
+    [SerializeField] int _controlNumber = 0;
     [SerializeField] FloatEvent _event = null;
 
     float _value;
 
     void Update()
     {
-        var newValue = _input.GetKnob(_index);
+        var newValue = Singletons.InputHandle.GetKnob(_controlNumber);
         if (newValue != _value)
         {
             _event.Invoke(newValue);

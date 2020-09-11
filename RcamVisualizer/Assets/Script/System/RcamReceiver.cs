@@ -12,8 +12,6 @@ sealed class RcamReceiver : MonoBehaviour
     #region External scene object references
 
     [SerializeField] NdiReceiver _ndiReceiver = null;
-    [SerializeField] Camera _mainCamera = null;
-    [SerializeField] InputHandle _input = null;
 
     #endregion
 
@@ -69,12 +67,13 @@ sealed class RcamReceiver : MonoBehaviour
         _metadata = Metadata.Deserialize(xml);
 
         // Camera update with the metadata
-        _mainCamera.projectionMatrix = _metadata.ProjectionMatrix;
-        _mainCamera.transform.position = _metadata.CameraPosition;
-        _mainCamera.transform.rotation = _metadata.CameraRotation;
+        var camera = Singletons.MainCamera;
+        camera.projectionMatrix = _metadata.ProjectionMatrix;
+        camera.transform.position = _metadata.CameraPosition;
+        camera.transform.rotation = _metadata.CameraRotation;
 
         // Input state update with the metadata
-        _input.InputState = _metadata.InputState;
+        Singletons.InputHandle.InputState = _metadata.InputState;
     }
 
     #endregion

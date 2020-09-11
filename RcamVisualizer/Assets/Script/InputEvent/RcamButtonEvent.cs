@@ -5,8 +5,7 @@ namespace Rcam2 {
 
 sealed class RcamButtonEvent : MonoBehaviour
 {
-    [SerializeField] InputHandle _input = null;
-    [SerializeField] int _index = 0;
+    [SerializeField] int _controlNumber = 0;
     [SerializeField] UnityEvent _onEvent = null;
     [SerializeField] UnityEvent _offEvent = null;
 
@@ -14,7 +13,7 @@ sealed class RcamButtonEvent : MonoBehaviour
 
     void Update()
     {
-        var newState = _input.GetToggle(_index);
+        var newState = Singletons.InputHandle.GetToggle(_controlNumber);
         if (newState != _state)
         {
             if (newState) _onEvent.Invoke(); else _offEvent.Invoke();

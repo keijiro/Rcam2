@@ -36,36 +36,28 @@ class VFXRcamMetadataBinder : VFXBinderBase
     [VFXPropertyBinding("UnityEngine.Matrix4x4"), SerializeField]
     ExposedProperty _inverseViewMatrixProperty = "InverseViewMatrix";
 
-    public Camera Camera = null;
-    public RcamReceiver Receiver = null;
-
     public override bool IsValid(VisualEffect component)
-      => Camera != null && Receiver != null &&
-         component.HasTexture(_colorMapProperty) &&
+      => component.HasTexture(_colorMapProperty) &&
          component.HasTexture(_depthMapProperty) &&
          component.HasVector4(_projectionVectorProperty) &&
          component.HasMatrix4x4(_inverseViewMatrixProperty);
 
     public override void UpdateBinding(VisualEffect component)
     {
-        component.SetTexture(_colorMapProperty, Receiver.ColorTexture);
-        component.SetTexture(_depthMapProperty, Receiver.DepthTexture);
-        component.SetVector4(_projectionVectorProperty, MakeProjectionVector());
-        component.SetMatrix4x4(_inverseViewMatrixProperty, Camera.cameraToWorldMatrix);
+        var recv = Singletons.Receiver;
+        component.SetTexture(_colorMapProperty, recv.ColorTexture);
+        component.SetTexture(_depthMapProperty, recv.DepthTexture);
+
+        var pm = Singletons.MainCamera.projectionMatrix;
+        var pv = new Vector4(pm[0, 2], pm[1, 2], pm[0, 0], pm[1, 1]);
+        component.SetVector4(_projectionVectorProperty, pv);
+
+        var v2w = Singletons.MainCamera.cameraToWorldMatrix;
+        component.SetMatrix4x4(_inverseViewMatrixProperty, v2w);
     }
 
     public override string ToString()
-    {
-        var name1 = Camera == null ? "(null)" : Camera.name;
-        var name2 = Receiver == null ? "(null)" : Receiver.name;
-        return $"Rcam Metadata : {name1}, {name2}";
-    }
-
-    Vector4 MakeProjectionVector()
-    {
-        var proj = Camera.projectionMatrix;
-        return new Vector4(proj[0, 2], proj[1, 2], proj[0, 0], proj[1, 1]);
-    }
+      => $"Rcam Metadata : {_colorMapProperty}, {_depthMapProperty}";
 }
 
 } // namespace Rcam2

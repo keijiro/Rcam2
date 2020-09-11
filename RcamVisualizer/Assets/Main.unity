@@ -495,26 +495,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 392662323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff9354e24397ae46b4c7ce935b389f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cf2f62932c07aa43829901369ecdcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 1545935629}
-  _index: 3
-  _event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 392662329}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _controlType: 2
+  _controlNumber: 3
+  _delayTillOff: 0
 --- !u!114 &392662326
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -535,8 +521,6 @@ MonoBehaviour:
     m_Name: ProjectionVector
   _inverseViewMatrixProperty:
     m_Name: InverseViewMatrix
-  Camera: {fileID: 340327590}
-  Receiver: {fileID: 1545935627}
 --- !u!114 &392662327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,8 +671,8 @@ GameObject:
   - component: {fileID: 643685943}
   - component: {fileID: 643685942}
   - component: {fileID: 643685941}
-  - component: {fileID: 643685940}
   - component: {fileID: 643685945}
+  - component: {fileID: 643685940}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -719,26 +703,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 643685938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff9354e24397ae46b4c7ce935b389f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cf2f62932c07aa43829901369ecdcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 1545935629}
-  _index: 1
-  _event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 643685944}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _controlType: 1
+  _controlNumber: 1
+  _delayTillOff: 3
 --- !u!114 &643685941
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -759,8 +729,6 @@ MonoBehaviour:
     m_Name: ProjectionVector
   _inverseViewMatrixProperty:
     m_Name: InverseViewMatrix
-  Camera: {fileID: 340327590}
-  Receiver: {fileID: 1545935627}
 --- !u!114 &643685942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,8 +743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 643685941}
   - {fileID: 643685945}
+  - {fileID: 643685941}
   m_VisualEffect: {fileID: 643685944}
 --- !u!73398921 &643685943
 VFXRenderer:
@@ -902,8 +870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _property:
     m_Name: Throttle
-  Input: {fileID: 1545935629}
-  Index: 1
+  ControlNumber: 1
 --- !u!1 &651696148
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,8 +884,8 @@ GameObject:
   - component: {fileID: 651696153}
   - component: {fileID: 651696152}
   - component: {fileID: 651696151}
-  - component: {fileID: 651696150}
   - component: {fileID: 651696155}
+  - component: {fileID: 651696150}
   m_Layer: 0
   m_Name: Dot
   m_TagString: Untagged
@@ -949,26 +916,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 651696148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff9354e24397ae46b4c7ce935b389f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cf2f62932c07aa43829901369ecdcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 1545935629}
-  _index: 2
-  _event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 651696154}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _controlType: 1
+  _controlNumber: 2
+  _delayTillOff: 3
 --- !u!114 &651696151
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -989,8 +942,6 @@ MonoBehaviour:
     m_Name: ProjectionVector
   _inverseViewMatrixProperty:
     m_Name: InverseViewMatrix
-  Camera: {fileID: 340327590}
-  Receiver: {fileID: 1545935627}
 --- !u!114 &651696152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,8 +956,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 651696151}
   - {fileID: 651696155}
+  - {fileID: 651696151}
   m_VisualEffect: {fileID: 651696154}
 --- !u!73398921 &651696153
 VFXRenderer:
@@ -1132,8 +1083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _property:
     m_Name: Throttle
-  Input: {fileID: 1545935629}
-  Index: 2
+  ControlNumber: 2
 --- !u!1 &651747694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,8 +1382,8 @@ GameObject:
   - component: {fileID: 697339485}
   - component: {fileID: 697339484}
   - component: {fileID: 697339483}
-  - component: {fileID: 697339482}
   - component: {fileID: 697339487}
+  - component: {fileID: 697339482}
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -1464,26 +1414,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 697339480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff9354e24397ae46b4c7ce935b389f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cf2f62932c07aa43829901369ecdcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 1545935629}
-  _index: 0
-  _event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 697339486}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _controlType: 1
+  _controlNumber: 0
+  _delayTillOff: 0
 --- !u!114 &697339483
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1504,8 +1440,6 @@ MonoBehaviour:
     m_Name: ProjectionVector
   _inverseViewMatrixProperty:
     m_Name: InverseViewMatrix
-  Camera: {fileID: 340327590}
-  Receiver: {fileID: 1545935627}
 --- !u!114 &697339484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1520,8 +1454,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 697339487}
   - {fileID: 697339483}
+  - {fileID: 697339487}
   m_VisualEffect: {fileID: 697339486}
 --- !u!73398921 &697339485
 VFXRenderer:
@@ -1647,8 +1581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _property:
     m_Name: Size
-  Input: {fileID: 1545935629}
-  Index: 0
+  ControlNumber: 0
 --- !u!1 &1183024214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,8 +1646,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ndiReceiver: {fileID: 1952930136}
-  _mainCamera: {fileID: 340327590}
-  _input: {fileID: 1545935629}
   _demuxShader: {fileID: 4800000, guid: cf3697b301fe1f14ba7a938dd006fd1c, type: 3}
 --- !u!4 &1545935628
 Transform:
@@ -1789,7 +1720,6 @@ MonoBehaviour:
         clearFlags: 0
         passFoldout: 0
         m_Version: 0
-        _receiver: {fileID: 1545935627}
 --- !u!4 &1774963902
 Transform:
   m_ObjectHideFlags: 0
