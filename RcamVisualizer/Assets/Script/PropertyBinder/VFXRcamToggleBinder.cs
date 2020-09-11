@@ -15,7 +15,7 @@ class VFXRcamToggleBinder : VFXBinderBase
     [VFXPropertyBinding("System.Boolean"), SerializeField]
     ExposedProperty _property = "Toggle";
 
-    public InputState Input = null;
+    public InputHandle Input = null;
     public int Index = 0;
 
     public override bool IsValid(VisualEffect component)

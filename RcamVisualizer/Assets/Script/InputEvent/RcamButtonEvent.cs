@@ -5,7 +5,7 @@ namespace Rcam2 {
 
 sealed class RcamButtonEvent : MonoBehaviour
 {
-    [SerializeField] InputState _input = null;
+    [SerializeField] InputHandle _input = null;
     [SerializeField] int _index = 0;
     [SerializeField] UnityEvent _onEvent = null;
     [SerializeField] UnityEvent _offEvent = null;

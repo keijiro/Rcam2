@@ -15,7 +15,7 @@ class VFXRcamKnobBinder : VFXBinderBase
     [VFXPropertyBinding("System.Single"), SerializeField]
     ExposedProperty _property = "Knob";
 
-    public InputState Input = null;
+    public InputHandle Input = null;
     public int Index = 0;
 
     public override bool IsValid(VisualEffect component)

@@ -13,7 +13,7 @@ sealed class RcamReceiver : MonoBehaviour
 
     [SerializeField] NdiReceiver _ndiReceiver = null;
     [SerializeField] Camera _mainCamera = null;
-    [SerializeField] InputState _input = null;
+    [SerializeField] InputHandle _input = null;
 
     #endregion
 
@@ -74,7 +74,7 @@ sealed class RcamReceiver : MonoBehaviour
         _mainCamera.transform.rotation = _metadata.CameraRotation;
 
         // Input state update with the metadata
-        _input.LoadFrom(_metadata);
+        _input.InputState = _metadata.InputState;
     }
 
     #endregion

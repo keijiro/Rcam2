@@ -15,7 +15,7 @@ class VFXRcamButtonBinder : VFXBinderBase
     [VFXPropertyBinding("System.Boolean"), SerializeField]
     ExposedProperty _property = "Button";
 
-    public InputState Input = null;
+    public InputHandle Input = null;
     public int Index = 0;
 
     public override bool IsValid(VisualEffect component)

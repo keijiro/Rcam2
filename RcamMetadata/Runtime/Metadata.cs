@@ -4,6 +4,13 @@ using System.Runtime.InteropServices;
 
 namespace Rcam2 {
 
+//
+// Rcam2 Metadata struct
+//
+// This is a blittable struct that contains application-dependent data. The
+// Rcam Controller serializes this struct using base64 and attaches it to NDI
+// frames as metadata.
+//
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct Metadata
 {
@@ -17,29 +24,8 @@ public unsafe struct Metadata
     public Matrix4x4 ProjectionMatrix;
     public Vector2 DepthRange;
 
-    // Controls
-    public fixed byte Buttons[1];
-    public fixed byte Toggles[1];
-    public fixed byte Knobs[4];
-
-    #endregion
-
-    #region Accessor methods
-
-    public byte GetButtonData(int offset) => Buttons[offset];
-
-    public void SetButtonData(int offset, int data)
-      => Buttons[offset] = (byte)data;
-
-    public byte GetToggleData(int offset) => Toggles[offset];
-
-    public void SetToggleData(int offset, int data)
-      => Toggles[offset] = (byte)data;
-
-    public float GetKnobData(int offset) => Knobs[offset] / 255.0f;
-
-    public void SetKnobData(int offset, float value)
-      => Knobs[offset] = (byte)(value * 255);
+    // Control input state
+    public InputState InputState;
 
     #endregion
 

@@ -7,7 +7,7 @@ sealed class RcamToggleEvent : MonoBehaviour
 {
     [System.Serializable] class BoolEvent : UnityEvent<bool> {}
 
-    [SerializeField] InputState _input = null;
+    [SerializeField] InputHandle _input = null;
     [SerializeField] int _index = 0;
     [SerializeField] BoolEvent _event = null;
 
