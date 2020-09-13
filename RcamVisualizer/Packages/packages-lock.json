@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.unity.mathematics": {
+      "version": "1.1.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.core": {
       "version": "8.2.0",
       "depth": 1,
@@ -64,6 +71,15 @@
         "com.unity.shadergraph": "8.2.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "jp.keijiro.klak.motion": {
+      "version": "1.0.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.mathematics": "1.1.0"
+      },
+      "url": "https://registry.npmjs.com"
     },
     "jp.keijiro.klak.ndi": {
       "version": "1.0.11",
