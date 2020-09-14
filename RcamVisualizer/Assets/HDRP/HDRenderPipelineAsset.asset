@@ -346,5 +346,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 40f905e3ea290b440ab992d92458b0ef, type: 2}
   - {fileID: 11400000, guid: 10012e2270e9fec4eaaad2be5fa8457d, type: 2}
   beforeTransparentCustomPostProcesses: []
-  beforePostProcessCustomPostProcesses: []
-  afterPostProcessCustomPostProcesses: []
+  beforePostProcessCustomPostProcesses:
+  - Kino.PostProcessing.Streak, Kino.Postprocessing, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  afterPostProcessCustomPostProcesses:
+  - Kino.PostProcessing.Recolor, Kino.Postprocessing, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null

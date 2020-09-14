@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8016578480844095077
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f019255bcd1cb489b193b5e8443a27, type: 3}
+  m_Name: Streak
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  threshold:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 5
+  stretch:
+    m_OverrideState: 1
+    m_Value: 0.75
+    min: 0
+    max: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.02
+    min: 0
+    max: 1
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 0.55, g: 0.55, b: 1, a: 1}
+    hdr: 0
+    showAlpha: 0
+    showEyeDropper: 1
 --- !u!114 &-625415036149767615
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -12,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e2d32e2c7b0c418e030c3236d663a, type: 3}
   m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   quality:
     m_OverrideState: 0
@@ -51,6 +86,8 @@ MonoBehaviour:
   - {fileID: 7204764186320495483}
   - {fileID: -625415036149767615}
   - {fileID: 2715065204056774247}
+  - {fileID: -8016578480844095077}
+  - {fileID: 7810857498464048555}
 --- !u!114 &1932259527246508038
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -86,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6b00fcf518bb94a90b408492e07b44, type: 3}
   m_Name: FilmGrain
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   type:
     m_OverrideState: 0
@@ -188,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bff652df78c97c4f963064ad1f34619, type: 3}
   m_Name: ColorCurves
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   master:
     m_OverrideState: 1
@@ -459,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1be1b6c95cd2e41b27903b9270817f, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   mode:
     m_OverrideState: 0
@@ -499,6 +536,83 @@ MonoBehaviour:
     m_Value: 1
     min: 0
     max: 1
+--- !u!114 &7810857498464048555
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ad42d51df0b2f43ba2cab92a53036d, type: 3}
+  m_Name: Recolor
+  m_EditorClassIdentifier: 
+  active: 0
+  m_AdvancedMode: 0
+  edgeColor:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 0}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  edgeSource:
+    m_OverrideState: 1
+    m_Value: 0
+  edgeThreshold:
+    m_OverrideState: 1
+    m_Value: 0.553
+    min: 0
+    max: 1
+  edgeContrast:
+    m_OverrideState: 1
+    m_Value: 0.66
+    min: 0
+    max: 1
+  fillGradient:
+    m_OverrideState: 1
+    m_Value:
+      serializedVersion: 2
+      key0: {r: 0.118191525, g: 0.26671964, b: 0.3018868, a: 1}
+      key1: {r: 0.50809896, g: 0.6007078, b: 0.6226415, a: 1}
+      key2: {r: 1, g: 1, b: 1, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 19456
+      ctime1: 45510
+      ctime2: 65535
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 1
+      m_NumColorKeys: 3
+      m_NumAlphaKeys: 2
+  fillOpacity:
+    m_OverrideState: 1
+    m_Value: 1
+    min: 0
+    max: 1
+  ditherType:
+    m_OverrideState: 0
+    m_Value: 2
+  ditherStrength:
+    m_OverrideState: 1
+    m_Value: 0.66
+    min: 0
+    max: 1
 --- !u!114 &8141266409653689818
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -511,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b24b200358312b4fa1004e2431c2f1f, type: 3}
   m_Name: ShadowsMidtonesHighlights
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
