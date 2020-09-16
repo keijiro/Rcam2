@@ -31,9 +31,16 @@ sealed class RcamBackgroundPass : CustomPass
        HDCamera hdCamera, CullingResults cullingResult)
     {
         var recv = Singletons.Receiver;
+        var prj = ProjectionUtil.MainCameraVector;
+        var v2w = Singletons.MainCamera.cameraToWorldMatrix;
+
         if (recv == null || recv.ColorTexture == null) return;
-        _material.SetTexture("_ColorTexture", recv.ColorTexture);
-        _material.SetTexture("_DepthTexture", recv.DepthTexture);
+
+        _material.SetVector(ShaderID.ProjectionVector, prj);
+        _material.SetMatrix(ShaderID.InverseViewMatrix, v2w);
+        _material.SetTexture(ShaderID.ColorTexture, recv.ColorTexture);
+        _material.SetTexture(ShaderID.DepthTexture, recv.DepthTexture);
+
         CoreUtils.DrawFullScreen(cmd, _material, null, 0);
     }
 
