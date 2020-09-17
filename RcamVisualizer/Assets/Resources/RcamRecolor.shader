@@ -5,12 +5,12 @@ Shader "FullScreen/RcamRecolor"
 #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/RenderPass/CustomPass/CustomPassCommon.hlsl"
 #include "Packages/jp.keijiro.klak.lineargradient/Shader/LinearGradient.hlsl"
 
-float4 _LineColor;
-float2 _LineParams;
-float _DitherStrength;
-
 LinearGradient _BackGradient;
 LinearGradient _FrontGradient;
+float3 _FillParams; // (back opacity, front opacity, dither strength)
+
+float4 _LineColor;
+float2 _LineParams; // (threshold, contrast)
 
 float4 SampleColorSRGB(uint2 pcs)
 {
@@ -40,14 +40,18 @@ float4 FullScreenPass(Varyings varyings) : SV_Target
     const float4x4 bayer =
       float4x4(0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5) / 16;
 
-    float dither = (bayer[pcsm4.x][pcsm4.y] - 0.5) * _DitherStrength;
-
+    // Luminance + dithering
+    float dither = (bayer[pcsm4.x][pcsm4.y] - 0.5) * _FillParams.z;
     float lm = Luminance(c0.rgb) + dither;
-    float3 bg = SampleLinearGradientColor(_BackGradient, lm);
-    float3 fg = SampleLinearGradientColor(_FrontGradient, lm);
-    fg = lerp(fg, _LineColor.rgb, g);
 
-    return float4(FastSRGBToLinear(lerp(bg, fg, c0.a)), 1);
+    // Back/front gradients
+    float4 bg = float4(SampleLinearGradientColor(_BackGradient, lm), _FillParams.x);
+    float4 fg = float4(SampleLinearGradientColor(_FrontGradient, lm), _FillParams.y);
+
+    // Edge blending (only affects the front)
+    fg.rgb = lerp(fg.rgb, _LineColor.rgb, g);
+
+    return FastSRGBToLinear(lerp(bg, fg, c0.a));
 }
 
     ENDHLSL
@@ -57,6 +61,7 @@ float4 FullScreenPass(Varyings varyings) : SV_Target
         Pass
         {
             Cull Off ZWrite Off ZTest Always
+            Blend SrcAlpha OneMinusSrcAlpha
             HLSLPROGRAM
             #pragma target 4.5
             #pragma only_renderers d3d11

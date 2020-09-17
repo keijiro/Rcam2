@@ -36,7 +36,7 @@ sealed class RcamRecolorPass : CustomPass
       (ScriptableRenderContext renderContext, CommandBuffer cmd,
        HDCamera hdCamera, CullingResults cullingResult)
     {
-        if (_controller == null) return;
+        if (_controller == null || !_controller.IsActive) return;
         CoreUtils.DrawFullScreen(cmd, _material, _controller.PropertyBlock, 0);
     }
 
