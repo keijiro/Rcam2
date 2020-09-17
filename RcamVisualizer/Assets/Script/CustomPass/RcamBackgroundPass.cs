@@ -10,6 +10,12 @@ namespace Rcam2 {
 [System.Serializable]
 sealed class RcamBackgroundPass : CustomPass
 {
+    #region Editable attributes
+
+    public RcamBackgroundController _controller = null;
+
+    #endregion
+
     #region Runtime objects
 
     Material _material;
@@ -30,6 +36,8 @@ sealed class RcamBackgroundPass : CustomPass
       (ScriptableRenderContext renderContext, CommandBuffer cmd,
        HDCamera hdCamera, CullingResults cullingResult)
     {
+        if (_controller == null || !_controller.IsActive) return;
+
         var recv = Singletons.Receiver;
         var prj = ProjectionUtil.MainCameraVector;
         var v2w = Singletons.MainCamera.cameraToWorldMatrix;
@@ -41,7 +49,8 @@ sealed class RcamBackgroundPass : CustomPass
         _material.SetTexture(ShaderID.ColorTexture, recv.ColorTexture);
         _material.SetTexture(ShaderID.DepthTexture, recv.DepthTexture);
 
-        CoreUtils.DrawFullScreen(cmd, _material, null, 0);
+        CoreUtils.DrawFullScreen
+          (cmd, _material, _controller.PropertyBlock, _controller.PassNumber);
     }
 
     protected override void Cleanup()

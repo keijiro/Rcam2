@@ -747,8 +747,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 643685941}
   - {fileID: 643685945}
+  - {fileID: 643685941}
   m_VisualEffect: {fileID: 643685944}
 --- !u!73398921 &643685943
 VFXRenderer:
@@ -1566,8 +1566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 697339483}
   - {fileID: 697339487}
+  - {fileID: 697339483}
   m_VisualEffect: {fileID: 697339486}
 --- !u!73398921 &697339485
 VFXRenderer:
@@ -1794,8 +1794,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 754595655}
   - {fileID: 754595653}
+  - {fileID: 754595655}
   m_VisualEffect: {fileID: 754595658}
 --- !u!73398921 &754595657
 VFXRenderer:
@@ -2147,8 +2147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 909593437}
   - {fileID: 909593441}
+  - {fileID: 909593437}
   m_VisualEffect: {fileID: 909593440}
 --- !u!73398921 &909593439
 VFXRenderer:
@@ -2357,8 +2357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 1034916025}
   - {fileID: 1034916021}
+  - {fileID: 1034916025}
   m_VisualEffect: {fileID: 1034916024}
 --- !u!73398921 &1034916023
 VFXRenderer:
@@ -2894,6 +2894,8 @@ MonoBehaviour:
     m_Mode: 1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  _backOpacity: 0
+  _frontOpacity: 0
   _dithering: 0.2
   _lineColor: {r: 0.9433962, g: 0, b: 0.74203193, a: 1}
   _lineThreshold: 0.1
@@ -2907,6 +2909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1774963902}
+  - component: {fileID: 1774963903}
   - component: {fileID: 1774963901}
   m_Layer: 0
   m_Name: Rcam Background
@@ -2945,6 +2948,7 @@ MonoBehaviour:
         clearFlags: 0
         passFoldout: 0
         m_Version: 0
+        _controller: {fileID: 1774963903}
 --- !u!4 &1774963902
 Transform:
   m_ObjectHideFlags: 0
@@ -2959,6 +2963,51 @@ Transform:
   m_Father: {fileID: 161959045}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1774963903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774963900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992fe41d48d7b144fadd1bd73bced58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bgOpacity: 1
+  _effectType: 0
+  _effectParameter: 0
+  _effectIntensity: 0
+  _effectGradient:
+    serializedVersion: 2
+    key0: {r: 0.20047058, g: 0.213, b: 0.06264705, a: 1}
+    key1: {r: 0.97647065, g: 0.14901961, b: 0.5137255, a: 1}
+    key2: {r: 0.85098046, g: 0.5647059, b: 0.8431373, a: 0}
+    key3: {r: 0.9843138, g: 0.77647066, b: 0.21960786, a: 0}
+    key4: {r: 0.8000001, g: 0.6313726, b: 0.49803925, a: 0}
+    key5: {r: 0, g: 1, b: 0.42510676, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 10922
+    ctime1: 21889
+    ctime2: 32833
+    ctime3: 43777
+    ctime4: 54722
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
 --- !u!1 &1864573253
 GameObject:
   m_ObjectHideFlags: 0

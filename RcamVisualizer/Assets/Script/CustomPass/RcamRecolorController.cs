@@ -53,7 +53,6 @@ sealed class RcamRecolorController : MonoBehaviour
     }
 
     #endregion
-
 }
 
 } // namespace Rcam2
