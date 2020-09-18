@@ -4,7 +4,7 @@
     {
         Pass
         {
-            Cull Off ZWrite On ZTest Less
+            Cull Off ZWrite On ZTest LEqual
             HLSLPROGRAM
             #pragma vertex Vert
             #pragma fragment FullScreenPass
@@ -14,7 +14,7 @@
         }
         Pass
         {
-            Cull Off ZWrite On ZTest Less
+            Cull Off ZWrite On ZTest LEqual
             HLSLPROGRAM
             #pragma vertex Vert
             #pragma fragment FullScreenPass
@@ -24,7 +24,7 @@
         }
         Pass
         {
-            Cull Off ZWrite On ZTest Less
+            Cull Off ZWrite On ZTest LEqual
             HLSLPROGRAM
             #pragma vertex Vert
             #pragma fragment FullScreenPass
@@ -34,7 +34,7 @@
         }
         Pass
         {
-            Cull Off ZWrite On ZTest Less
+            Cull Off ZWrite On ZTest LEqual
             HLSLPROGRAM
             #pragma vertex Vert
             #pragma fragment FullScreenPass
@@ -44,7 +44,7 @@
         }
         Pass
         {
-            Cull Off ZWrite On ZTest Less
+            Cull Off ZWrite On ZTest LEqual
             HLSLPROGRAM
             #pragma vertex Vert
             #pragma fragment FullScreenPass
