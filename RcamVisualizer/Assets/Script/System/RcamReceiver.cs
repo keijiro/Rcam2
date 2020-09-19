@@ -26,13 +26,23 @@ sealed class RcamReceiver : MonoBehaviour
     public RenderTexture ColorTexture => _textures.color;
     public RenderTexture DepthTexture => _textures.depth;
     public Matrix4x4 ProjectionMatrix => _metadata.ProjectionMatrix;
+    public Vector3 CameraPosition => _metadata.CameraPosition;
+    public Quaternion CameraRotation => _metadata.CameraRotation;
+    public Matrix4x4 CameraToWorldMatrix => CalculateCameraToWorldMatrix();
+
+    Matrix4x4 CalculateCameraToWorldMatrix()
+    {
+        if (CameraPosition == Vector3.zero) return Matrix4x4.identity;
+        return Matrix4x4.TRS
+          (CameraPosition, CameraRotation, new Vector3(1, 1, -1));
+    }
 
     #endregion
 
     #region Runtime objects
 
     (RenderTexture color, RenderTexture depth) _textures;
-    Metadata _metadata;
+    Metadata _metadata = Metadata.InitialData;
     Material _demuxMaterial;
 
     #endregion
@@ -51,7 +61,7 @@ sealed class RcamReceiver : MonoBehaviour
 
     void Update()
     {
-        RetrieveAndApplyMetadata();
+        UpdateMetadata();
         ExtractTextures();
     }
 
@@ -59,18 +69,12 @@ sealed class RcamReceiver : MonoBehaviour
 
     #region Metadata extraction
 
-    void RetrieveAndApplyMetadata()
+    void UpdateMetadata()
     {
         // Deserialization
         var xml = _ndiReceiver.metadata;
         if (xml == null || xml.Length == 0) return;
         _metadata = Metadata.Deserialize(xml);
-
-        // Camera update with the metadata
-        var camera = Singletons.MainCamera;
-        camera.projectionMatrix = _metadata.ProjectionMatrix;
-        camera.transform.position = _metadata.CameraPosition;
-        camera.transform.rotation = _metadata.CameraRotation;
 
         // Input state update with the metadata
         Singletons.InputHandle.InputState = _metadata.InputState;

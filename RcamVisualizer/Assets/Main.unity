@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 340327591}
   - component: {fileID: 340327590}
   - component: {fileID: 340327588}
+  - component: {fileID: 340327589}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -362,6 +363,18 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
+--- !u!114 &340327589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340327587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c311e556d475f94581748aeb3bdf2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &340327590
 Camera:
   m_ObjectHideFlags: 0
@@ -428,6 +441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 349727204}
+  - component: {fileID: 349727205}
   m_Layer: 0
   m_Name: Camera Transform
   m_TagString: Untagged
@@ -450,6 +464,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &349727205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349727203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7727f41c689297f49874ffdace21710a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &384911836
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,8 +1018,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 651696155}
   - {fileID: 651696151}
+  - {fileID: 651696155}
   m_VisualEffect: {fileID: 651696154}
 --- !u!73398921 &651696153
 VFXRenderer:
@@ -2180,8 +2206,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 909593441}
   - {fileID: 909593437}
+  - {fileID: 909593441}
   m_VisualEffect: {fileID: 909593440}
 --- !u!73398921 &909593439
 VFXRenderer:
@@ -2816,7 +2842,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ndiReceiver: {fileID: 1952930136}
-  _cameraTransform: {fileID: 349727204}
   _demuxShader: {fileID: 4800000, guid: cf3697b301fe1f14ba7a938dd006fd1c, type: 3}
 --- !u!4 &1545935628
 Transform:

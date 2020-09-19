@@ -14,11 +14,6 @@ static class ShaderID
 
 static class Singletons
 {
-    static Camera _mainCamera;
-
-    public static Camera MainCamera
-      => _mainCamera != null ? _mainCamera : (_mainCamera = Camera.main);
-
     static RcamReceiver _receiver;
 
     public static RcamReceiver Receiver
@@ -37,8 +32,8 @@ static class ProjectionUtil
     public static Vector4 GetVector(in Matrix4x4 m)
       => new Vector4(m[0, 2], m[1, 2], m[0, 0], m[1, 1]);
 
-    public static Vector4 MainCameraVector
-      => GetVector(Singletons.MainCamera.projectionMatrix);
+    public static Vector4 VectorFromReceiver
+      => GetVector(Singletons.Receiver.ProjectionMatrix);
 }
 
 } // namespace Rcam2

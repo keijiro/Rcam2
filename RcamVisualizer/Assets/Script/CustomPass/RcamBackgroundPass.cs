@@ -39,8 +39,8 @@ sealed class RcamBackgroundPass : CustomPass
         if (_controller == null || !_controller.IsActive) return;
 
         var recv = Singletons.Receiver;
-        var prj = ProjectionUtil.MainCameraVector;
-        var v2w = Singletons.MainCamera.cameraToWorldMatrix;
+        var prj = ProjectionUtil.VectorFromReceiver;
+        var v2w = Singletons.Receiver.CameraToWorldMatrix;
 
         if (recv == null || recv.ColorTexture == null) return;
 

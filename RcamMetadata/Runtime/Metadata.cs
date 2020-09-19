@@ -27,6 +27,12 @@ public unsafe struct Metadata
     // Control input state
     public InputState InputState;
 
+    // Initial data constructor
+    public static Metadata InitialData =>
+      new Metadata { CameraRotation = Quaternion.identity,
+                     ProjectionMatrix = Matrix4x4.identity,
+                     DepthRange = new Vector2(0, 1) };
+
     #endregion
 
     #region Serialization/deserialization

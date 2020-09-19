@@ -7,7 +7,7 @@ MonoImporter:
   - _ndiReceiver: {instanceID: 0}
   - _mainCamera: {instanceID: 0}
   - _demuxShader: {fileID: 4800000, guid: cf3697b301fe1f14ba7a938dd006fd1c, type: 3}
-  executionOrder: 0
+  executionOrder: -50
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
