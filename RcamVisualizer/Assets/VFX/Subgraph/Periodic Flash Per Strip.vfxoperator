@@ -6,7 +6,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Periodic Flash
+  m_Name: Periodic Flash Per Strip
   m_Graph: {fileID: 2}
   m_Infos:
     m_RendererSettings:
@@ -30,7 +30,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: Periodic Flash
+  m_Name: Periodic Flash Per Strip
   m_EditorClassIdentifier: 
   m_Parent: {fileID: 0}
   m_Children:
@@ -1426,7 +1426,7 @@ MonoBehaviour:
   - {fileID: 44}
   m_OutputSlots:
   - {fileID: 45}
-  seed: 0
+  seed: 2
   constant: 1
 --- !u!114 &42
 MonoBehaviour:
