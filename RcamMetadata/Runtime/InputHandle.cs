@@ -13,40 +13,72 @@ public sealed class InputHandle : MonoBehaviour
 {
     #region Internal state data
 
-    bool [] _buttons = new bool [8];
-    bool [] _toggles = new bool [8];
-    float [] _knobs = new float [8];
+    bool [] _buttons = new bool [16];
+    bool [] _toggles = new bool [16];
+    float [] _knobs = new float [24];
 
     #endregion
 
     #region Accessing by properties
 
-    public bool Button0 { get => _buttons[0]; set => _buttons[0] = value; }
-    public bool Button1 { get => _buttons[1]; set => _buttons[1] = value; }
-    public bool Button2 { get => _buttons[2]; set => _buttons[2] = value; }
-    public bool Button3 { get => _buttons[3]; set => _buttons[3] = value; }
-    public bool Button4 { get => _buttons[4]; set => _buttons[4] = value; }
-    public bool Button5 { get => _buttons[5]; set => _buttons[5] = value; }
-    public bool Button6 { get => _buttons[6]; set => _buttons[6] = value; }
-    public bool Button7 { get => _buttons[7]; set => _buttons[7] = value; }
+    public bool Button0  { get => _buttons[ 0]; set => _buttons[ 0] = value; }
+    public bool Button1  { get => _buttons[ 1]; set => _buttons[ 1] = value; }
+    public bool Button2  { get => _buttons[ 2]; set => _buttons[ 2] = value; }
+    public bool Button3  { get => _buttons[ 3]; set => _buttons[ 3] = value; }
+    public bool Button4  { get => _buttons[ 4]; set => _buttons[ 4] = value; }
+    public bool Button5  { get => _buttons[ 5]; set => _buttons[ 5] = value; }
+    public bool Button6  { get => _buttons[ 6]; set => _buttons[ 6] = value; }
+    public bool Button7  { get => _buttons[ 7]; set => _buttons[ 7] = value; }
+    public bool Button8  { get => _buttons[ 8]; set => _buttons[ 8] = value; }
+    public bool Button9  { get => _buttons[ 9]; set => _buttons[ 9] = value; }
+    public bool Button10 { get => _buttons[10]; set => _buttons[10] = value; }
+    public bool Button11 { get => _buttons[11]; set => _buttons[11] = value; }
+    public bool Button12 { get => _buttons[12]; set => _buttons[12] = value; }
+    public bool Button13 { get => _buttons[13]; set => _buttons[13] = value; }
+    public bool Button14 { get => _buttons[14]; set => _buttons[14] = value; }
+    public bool Button15 { get => _buttons[15]; set => _buttons[15] = value; }
 
-    public bool Toggle0 { get => _toggles[0]; set => _toggles[0] = value; }
-    public bool Toggle1 { get => _toggles[1]; set => _toggles[1] = value; }
-    public bool Toggle2 { get => _toggles[2]; set => _toggles[2] = value; }
-    public bool Toggle3 { get => _toggles[3]; set => _toggles[3] = value; }
-    public bool Toggle4 { get => _toggles[4]; set => _toggles[4] = value; }
-    public bool Toggle5 { get => _toggles[5]; set => _toggles[5] = value; }
-    public bool Toggle6 { get => _toggles[6]; set => _toggles[6] = value; }
-    public bool Toggle7 { get => _toggles[7]; set => _toggles[7] = value; }
+    public bool Toggle0  { get => _toggles[ 0]; set => _toggles[ 0] = value; }
+    public bool Toggle1  { get => _toggles[ 1]; set => _toggles[ 1] = value; }
+    public bool Toggle2  { get => _toggles[ 2]; set => _toggles[ 2] = value; }
+    public bool Toggle3  { get => _toggles[ 3]; set => _toggles[ 3] = value; }
+    public bool Toggle4  { get => _toggles[ 4]; set => _toggles[ 4] = value; }
+    public bool Toggle5  { get => _toggles[ 5]; set => _toggles[ 5] = value; }
+    public bool Toggle6  { get => _toggles[ 6]; set => _toggles[ 6] = value; }
+    public bool Toggle7  { get => _toggles[ 7]; set => _toggles[ 7] = value; }
+    public bool Toggle8  { get => _toggles[ 8]; set => _toggles[ 8] = value; }
+    public bool Toggle9  { get => _toggles[ 9]; set => _toggles[ 9] = value; }
+    public bool Toggle10 { get => _toggles[10]; set => _toggles[10] = value; }
+    public bool Toggle11 { get => _toggles[11]; set => _toggles[11] = value; }
+    public bool Toggle12 { get => _toggles[12]; set => _toggles[12] = value; }
+    public bool Toggle13 { get => _toggles[13]; set => _toggles[13] = value; }
+    public bool Toggle14 { get => _toggles[14]; set => _toggles[14] = value; }
+    public bool Toggle15 { get => _toggles[15]; set => _toggles[15] = value; }
 
-    public float Knob0 { get => _knobs[0]; set => _knobs[0] = value; }
-    public float Knob1 { get => _knobs[1]; set => _knobs[1] = value; }
-    public float Knob2 { get => _knobs[2]; set => _knobs[2] = value; }
-    public float Knob3 { get => _knobs[3]; set => _knobs[3] = value; }
-    public float Knob4 { get => _knobs[4]; set => _knobs[4] = value; }
-    public float Knob5 { get => _knobs[5]; set => _knobs[5] = value; }
-    public float Knob6 { get => _knobs[6]; set => _knobs[6] = value; }
-    public float Knob7 { get => _knobs[7]; set => _knobs[7] = value; }
+    public float Knob0  { get => _knobs[ 0]; set => _knobs[ 0] = value; }
+    public float Knob1  { get => _knobs[ 1]; set => _knobs[ 1] = value; }
+    public float Knob2  { get => _knobs[ 2]; set => _knobs[ 2] = value; }
+    public float Knob3  { get => _knobs[ 3]; set => _knobs[ 3] = value; }
+    public float Knob4  { get => _knobs[ 4]; set => _knobs[ 4] = value; }
+    public float Knob5  { get => _knobs[ 5]; set => _knobs[ 5] = value; }
+    public float Knob6  { get => _knobs[ 6]; set => _knobs[ 6] = value; }
+    public float Knob7  { get => _knobs[ 7]; set => _knobs[ 7] = value; }
+    public float Knob8  { get => _knobs[ 8]; set => _knobs[ 8] = value; }
+    public float Knob9  { get => _knobs[ 9]; set => _knobs[ 9] = value; }
+    public float Knob10 { get => _knobs[10]; set => _knobs[10] = value; }
+    public float Knob11 { get => _knobs[11]; set => _knobs[11] = value; }
+    public float Knob12 { get => _knobs[12]; set => _knobs[12] = value; }
+    public float Knob13 { get => _knobs[13]; set => _knobs[13] = value; }
+    public float Knob14 { get => _knobs[14]; set => _knobs[14] = value; }
+    public float Knob15 { get => _knobs[15]; set => _knobs[15] = value; }
+    public float Knob16 { get => _knobs[16]; set => _knobs[16] = value; }
+    public float Knob17 { get => _knobs[17]; set => _knobs[17] = value; }
+    public float Knob18 { get => _knobs[18]; set => _knobs[18] = value; }
+    public float Knob19 { get => _knobs[19]; set => _knobs[19] = value; }
+    public float Knob20 { get => _knobs[20]; set => _knobs[20] = value; }
+    public float Knob21 { get => _knobs[21]; set => _knobs[21] = value; }
+    public float Knob22 { get => _knobs[22]; set => _knobs[22] = value; }
+    public float Knob23 { get => _knobs[23]; set => _knobs[23] = value; }
 
     #endregion
 
@@ -72,66 +104,43 @@ public sealed class InputHandle : MonoBehaviour
     {
         var state = new InputState();
 
-        state.SetButtonData(0, (_buttons[0] ? 0b00000001 : 0) +
-                               (_buttons[1] ? 0b00000010 : 0) +
-                               (_buttons[2] ? 0b00000100 : 0) +
-                               (_buttons[3] ? 0b00001000 : 0) +
-                               (_buttons[4] ? 0b00010000 : 0) +
-                               (_buttons[5] ? 0b00100000 : 0) +
-                               (_buttons[6] ? 0b01000000 : 0) +
-                               (_buttons[7] ? 0b10000000 : 0));
+        for (var i = 0; i < 2; i++)
+        {
+            var bdata = 0;
+            var tdata = 0;
 
-        state.SetToggleData(0, (_toggles[0] ? 0b00000001 : 0) +
-                               (_toggles[1] ? 0b00000010 : 0) +
-                               (_toggles[2] ? 0b00000100 : 0) +
-                               (_toggles[3] ? 0b00001000 : 0) +
-                               (_toggles[4] ? 0b00010000 : 0) +
-                               (_toggles[5] ? 0b00100000 : 0) +
-                               (_toggles[6] ? 0b01000000 : 0) +
-                               (_toggles[7] ? 0b10000000 : 0));
+            for (var bit = 0; bit < 8; bit++)
+            {
+                if (_buttons[bit]) bdata += 1 << bit;
+                if (_toggles[bit]) tdata += 1 << bit;
+            }
 
-        state.SetKnobData(0, (int)(_knobs[0] * 255));
-        state.SetKnobData(1, (int)(_knobs[1] * 255));
-        state.SetKnobData(2, (int)(_knobs[2] * 255));
-        state.SetKnobData(3, (int)(_knobs[3] * 255));
-        state.SetKnobData(4, (int)(_knobs[4] * 255));
-        state.SetKnobData(5, (int)(_knobs[5] * 255));
-        state.SetKnobData(6, (int)(_knobs[6] * 255));
-        state.SetKnobData(7, (int)(_knobs[7] * 255));
+            state.SetButtonData(i, bdata);
+            state.SetToggleData(i, tdata);
+        }
+
+        for (var i = 0; i < 24; i++)
+            state.SetKnobData(i, (int)(_knobs[i] * 255));
 
         return state;
     }
 
     public void UpdateState(in InputState state)
     {
-        var bf = state.GetButtonData(0);
-        _buttons[0] = (bf & 0b00000001) != 0;
-        _buttons[1] = (bf & 0b00000010) != 0;
-        _buttons[2] = (bf & 0b00000100) != 0;
-        _buttons[3] = (bf & 0b00001000) != 0;
-        _buttons[4] = (bf & 0b00010000) != 0;
-        _buttons[5] = (bf & 0b00100000) != 0;
-        _buttons[6] = (bf & 0b01000000) != 0;
-        _buttons[7] = (bf & 0b10000000) != 0;
+        for (var i = 0; i < 2; i++)
+        {
+            var bdata = state.GetButtonData(i);
+            var tdata = state.GetToggleData(i);
 
-        bf = state.GetToggleData(0);
-        _toggles[0] = (bf & 0b00000001) != 0;
-        _toggles[1] = (bf & 0b00000010) != 0;
-        _toggles[2] = (bf & 0b00000100) != 0;
-        _toggles[3] = (bf & 0b00001000) != 0;
-        _toggles[4] = (bf & 0b00010000) != 0;
-        _toggles[5] = (bf & 0b00100000) != 0;
-        _toggles[6] = (bf & 0b01000000) != 0;
-        _toggles[7] = (bf & 0b10000000) != 0;
+            for (var bit = 0; bit < 8; bit++)
+            {
+                _buttons[bit] = (bdata & (1 << bit)) != 0;
+                _toggles[bit] = (tdata & (1 << bit)) != 0;
+            }
+        }
 
-        _knobs[0] = state.GetKnobData(0) / 255.0f;
-        _knobs[1] = state.GetKnobData(1) / 255.0f;
-        _knobs[2] = state.GetKnobData(2) / 255.0f;
-        _knobs[3] = state.GetKnobData(3) / 255.0f;
-        _knobs[4] = state.GetKnobData(4) / 255.0f;
-        _knobs[5] = state.GetKnobData(5) / 255.0f;
-        _knobs[6] = state.GetKnobData(6) / 255.0f;
-        _knobs[7] = state.GetKnobData(7) / 255.0f;
+        for (var i = 0; i < 24; i++)
+            _knobs[i] = state.GetKnobData(i) / 255.0f;
     }
 
     #endregion

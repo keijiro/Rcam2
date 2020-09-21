@@ -12,9 +12,9 @@ public unsafe struct InputState
 {
     #region Data members
 
-    fixed byte Buttons[1];
-    fixed byte Toggles[1];
-    fixed byte Knobs[8];
+    fixed byte Buttons[2];
+    fixed byte Toggles[2];
+    fixed byte Knobs[24];
 
     #endregion
 
