@@ -27,6 +27,12 @@ sealed class RcamRecolorController : MonoBehaviour
 
     public bool IsActive => _backOpacity > 0 || _frontOpacity > 0;
 
+    public float BackOpacity
+      { get => _backOpacity; set => _backOpacity = value; }
+
+    public float FrontOpacity
+      { get => _frontOpacity; set => _frontOpacity = value; }
+
     #endregion
 
     #region Material property block

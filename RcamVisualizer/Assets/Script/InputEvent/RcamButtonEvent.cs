@@ -13,7 +13,7 @@ sealed class RcamButtonEvent : MonoBehaviour
 
     void Update()
     {
-        var newState = Singletons.InputHandle.GetToggle(_controlNumber);
+        var newState = Singletons.InputHandle.GetButton(_controlNumber);
         if (newState != _state)
         {
             if (newState) _onEvent.Invoke(); else _offEvent.Invoke();

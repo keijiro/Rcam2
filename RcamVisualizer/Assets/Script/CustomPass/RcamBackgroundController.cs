@@ -17,9 +17,9 @@ sealed class RcamBackgroundController : MonoBehaviour
     #region Editable attributes
 
     [Space]
-    [SerializeField, Range(0, 1)] float _bgOpacity = 1;
+    [SerializeField, Range(0, 1)] float _backOpacity = 1;
     [Space]
-    [SerializeField] EffectType _effectType = EffectType.Off;
+    [SerializeField] EffectType _frontEffect = EffectType.Off;
     [SerializeField, Range(0, 1)] float _effectParameter = 0;
     [SerializeField, Range(0, 1)] float _effectIntensity = 0;
     [SerializeField] Gradient _effectGradient = null;
@@ -29,7 +29,20 @@ sealed class RcamBackgroundController : MonoBehaviour
     #region Public properties
 
     public bool IsActive => true;
-    public int PassNumber => (int)_effectType;
+
+    public int PassNumber => (int)_frontEffect;
+
+    public EffectType FrontEffect
+      { get => _frontEffect; set => _frontEffect = value; }
+
+    public float BackOpacity
+      { get => _backOpacity; set => _backOpacity = value; }
+
+    public float EffectParameter
+      { get => _effectParameter; set => _effectParameter = value; }
+
+    public float EffectIntensity
+      { get => _effectIntensity; set => _effectIntensity = value; }
 
     #endregion
 
@@ -44,7 +57,7 @@ sealed class RcamBackgroundController : MonoBehaviour
         if (_props == null) _props = new MaterialPropertyBlock();
 
         var eparams = new Vector2(_effectParameter, _effectIntensity);
-        _props.SetFloat("_BGOpacity", _bgOpacity);
+        _props.SetFloat("_BGOpacity", _backOpacity);
         _props.SetVector("_EffectParams", eparams);
         _props.SetLinearGradient("_EffectGradient", _effectGradient);
 
