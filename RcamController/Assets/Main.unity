@@ -436,7 +436,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button7
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -451,7 +451,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button7
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -586,7 +586,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob3
+        m_MethodName: set_Knob11
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -681,7 +681,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Toggle0
+        m_MethodName: set_Toggle1
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1004,7 +1004,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob1
+        m_MethodName: set_Knob21
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1099,7 +1099,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Toggle0
+        m_MethodName: set_Toggle4
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1675,7 +1675,7 @@ RectTransform:
   - {fileID: 1079528355}
   - {fileID: 1933022481}
   - {fileID: 1552803149}
-  - {fileID: 1028532668}
+  - {fileID: 617514370}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1958,7 +1958,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Toggle0
+        m_MethodName: set_Toggle3
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2574,7 +2574,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob1
+        m_MethodName: set_Knob9
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2671,7 +2671,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob1
+        m_MethodName: set_Knob18
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3413,6 +3413,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602993131}
   m_CullTransparentMesh: 0
+--- !u!1 &617514369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 617514370}
+  - component: {fileID: 617514371}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &617514370
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617514369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1028532668}
+  - {fileID: 1775319289}
+  m_Father: {fileID: 222812646}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -50, y: -70}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &617514371
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617514369}
+  m_CullTransparentMesh: 0
 --- !u!1 &619046519
 GameObject:
   m_ObjectHideFlags: 0
@@ -3680,6 +3726,7 @@ GameObject:
   - component: {fileID: 778590966}
   - component: {fileID: 778590968}
   - component: {fileID: 778590969}
+  - component: {fileID: 778590970}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -3748,6 +3795,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da60d09bab43433489a6e7a6013234c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &778590970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778590965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a31f5fc62dc4ae8a0f11ac0ca92eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 1.5
+  _text: {fileID: 1775319287}
 --- !u!1 &844453799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3897,7 +3958,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Spike
+  m_Text: Spark
 --- !u!222 &870645582
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4313,7 +4374,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button8
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4328,7 +4389,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button8
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4542,7 +4603,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob0
+        m_MethodName: set_Knob15
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4578,17 +4639,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028532667}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1063847078}
-  m_Father: {fileID: 222812646}
-  m_RootOrder: 9
+  m_Father: {fileID: 617514370}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -70}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1028532669
@@ -4633,10 +4694,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1028532670}
   _onButtonDown:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590970}
+        m_TargetAssemblyTypeName: Rcam2.RebootSwitch, Assembly-CSharp
+        m_MethodName: set_Hold
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   _onButtonUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778590970}
+        m_TargetAssemblyTypeName: Rcam2.RebootSwitch, Assembly-CSharp
+        m_MethodName: set_Hold
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1028532670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5632,7 +5717,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob6
+        m_MethodName: set_Knob14
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6040,7 +6125,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button4
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6055,7 +6140,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button4
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6599,7 +6684,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob0
+        m_MethodName: set_Knob20
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6917,7 +7002,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button5
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6932,7 +7017,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button5
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7142,7 +7227,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob2
+        m_MethodName: set_Knob10
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7236,7 +7321,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button2
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7251,7 +7336,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button2
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7844,7 +7929,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob1
+        m_MethodName: set_Knob19
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8141,7 +8226,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob4
+        m_MethodName: set_Knob12
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8238,7 +8323,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob5
+        m_MethodName: set_Knob13
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8487,7 +8572,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Toggle0
+        m_MethodName: set_Toggle2
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8584,7 +8669,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob0
+        m_MethodName: set_Knob8
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8962,6 +9047,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750380883}
   m_CullTransparentMesh: 0
+--- !u!1 &1775319286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1775319289}
+  - component: {fileID: 1775319288}
+  - component: {fileID: 1775319287}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1775319287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775319286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 1c89ee1b6a40e4d15bcdb7049247bfdb, type: 3}
+    m_FontSize: 24
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 132
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Hold To Reboot 3.33
+--- !u!222 &1775319288
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775319286}
+  m_CullTransparentMesh: 0
+--- !u!224 &1775319289
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775319286}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 617514370}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -75, y: 40}
+  m_SizeDelta: {x: 500, y: 40}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &1788207838
 GameObject:
   m_ObjectHideFlags: 0
@@ -9454,7 +9618,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob0
+        m_MethodName: set_Knob17
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10496,7 +10660,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Knob1
+        m_MethodName: set_Knob16
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10839,7 +11003,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button3
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10854,7 +11018,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button3
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10986,7 +11150,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button6
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11001,7 +11165,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778590969}
         m_TargetAssemblyTypeName: Rcam2.InputHandle, Rcam2.Metadata.Runtime
-        m_MethodName: set_Button0
+        m_MethodName: set_Button6
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
