@@ -18,7 +18,7 @@
   "dependencies": {
     "jp.keijiro.rcam2.metadata": "file:../../RcamMetadata",
     "jp.keijiro.test-assets": "1.0.1",
-    "jp.keijiro.kino.feedback": "1.0.0",
+    "jp.keijiro.kino.feedback": "1.0.1",
     "jp.keijiro.kino.post-processing": "2.1.15",
     "jp.keijiro.klak.lineargradient": "1.0.2",
     "jp.keijiro.klak.motion": "1.0.1",
