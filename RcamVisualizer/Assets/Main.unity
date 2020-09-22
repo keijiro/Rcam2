@@ -318,6 +318,126 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &64243861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 64243862}
+  - component: {fileID: 64243865}
+  - component: {fileID: 64243864}
+  - component: {fileID: 64243863}
+  m_Layer: 0
+  m_Name: Control
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &64243862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64243861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1755712483}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &64243863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64243861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15ae8dcaa86efa438e3f9823af7c907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controlNumber: 7
+  _onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755712485}
+        m_TargetAssemblyTypeName: Rcam2.RcamRecolorController, Assembly-CSharp
+        m_MethodName: ShuffleColors
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _offEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &64243864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64243861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff9354e24397ae46b4c7ce935b389f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controlNumber: 1
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755712485}
+        m_TargetAssemblyTypeName: Rcam2.RcamRecolorController, Assembly-CSharp
+        m_MethodName: set_FrontFill
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &64243865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64243861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff9354e24397ae46b4c7ce935b389f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controlNumber: 0
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755712485}
+        m_TargetAssemblyTypeName: Rcam2.RcamRecolorController, Assembly-CSharp
+        m_MethodName: set_BackFill
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &154155704
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,8 +1099,9 @@ GameObject:
   - component: {fileID: 423074883}
   - component: {fileID: 423074882}
   - component: {fileID: 423074881}
+  - component: {fileID: 423074885}
   m_Layer: 0
-  m_Name: Control Adapter
+  m_Name: Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1017,8 +1138,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 423074884}
-        m_TargetAssemblyTypeName: Rcam2.FeedbackControlAdapter, Assembly-CSharp
-        m_MethodName: set_Offset
+        m_TargetAssemblyTypeName: Rcam2.FeedbackEffectControllerAdapter, Assembly-CSharp
+        m_MethodName: SetRotation
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1045,8 +1166,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 423074884}
-        m_TargetAssemblyTypeName: Rcam2.FeedbackControlAdapter, Assembly-CSharp
-        m_MethodName: set_Rotation
+        m_TargetAssemblyTypeName: Rcam2.FeedbackEffectControllerAdapter, Assembly-CSharp
+        m_MethodName: SetHueShift
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1073,8 +1194,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 423074884}
-        m_TargetAssemblyTypeName: Rcam2.FeedbackControlAdapter, Assembly-CSharp
-        m_MethodName: set_Throttle
+        m_TargetAssemblyTypeName: Rcam2.FeedbackEffectControllerAdapter, Assembly-CSharp
+        m_MethodName: SetThrottle
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1126,6 +1247,30 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  _hueShiftCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.3
+      inSlope: 0.73835313
+      outSlope: 0.73835313
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06427503
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _scaleCurve:
     serializedVersion: 2
     m_Curve:
@@ -1234,58 +1379,25 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &438086462
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 438086463}
-  - component: {fileID: 438086466}
-  - component: {fileID: 438086465}
-  - component: {fileID: 438086464}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &438086463
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438086462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1755712483}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &438086464
+--- !u!114 &423074885
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438086462}
+  m_GameObject: {fileID: 423074879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff9354e24397ae46b4c7ce935b389f1, type: 3}
+  m_Script: {fileID: 11500000, guid: b5807d8923f0a4a4d8007884762c2837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controlNumber: 1
+  _controlNumber: 20
   _event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 438086466}
-        m_TargetAssemblyTypeName: Rcam2.RcamRecolorControllerAdapter, Assembly-CSharp
-        m_MethodName: set_EnableFrontEffect
+      - m_Target: {fileID: 423074884}
+        m_TargetAssemblyTypeName: Rcam2.FeedbackEffectControllerAdapter, Assembly-CSharp
+        m_MethodName: SetOffset
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1295,47 +1407,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &438086465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438086462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff9354e24397ae46b4c7ce935b389f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _controlNumber: 0
-  _event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 438086466}
-        m_TargetAssemblyTypeName: Rcam2.RcamRecolorControllerAdapter, Assembly-CSharp
-        m_MethodName: set_EnableBackEffect
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &438086466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438086462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14961c8f6c06bfd4e825f00a101a8bfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 1755712485}
 --- !u!115 &509491569
 MonoScript:
   m_ObjectHideFlags: 0
@@ -1435,8 +1506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 643685941}
   - {fileID: 643685945}
+  - {fileID: 643685941}
   m_VisualEffect: {fileID: 643685944}
 --- !u!73398921 &643685943
 VFXRenderer:
@@ -2116,8 +2187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 679123994}
   - {fileID: 679123995}
+  - {fileID: 679123994}
   m_VisualEffect: {fileID: 679123993}
 --- !u!1 &697339480
 GameObject:
@@ -2831,8 +2902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 909593437}
   - {fileID: 909593441}
+  - {fileID: 909593437}
   m_VisualEffect: {fileID: 909593440}
 --- !u!73398921 &909593439
 VFXRenderer:
@@ -3056,8 +3127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 937118153}
   - {fileID: 937118154}
+  - {fileID: 937118153}
   m_VisualEffect: {fileID: 937118157}
 --- !u!73398921 &937118156
 VFXRenderer:
@@ -3254,8 +3325,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 1034916021}
   - {fileID: 1034916025}
+  - {fileID: 1034916021}
   m_VisualEffect: {fileID: 1034916024}
 --- !u!73398921 &1034916023
 VFXRenderer:
@@ -3645,6 +3716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tint: {r: 1, g: 1, b: 1, a: 1}
+  _hueShift: 0
   _offsetX: 0
   _offsetY: 0
   _rotation: 0
@@ -3716,7 +3788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5807d8923f0a4a4d8007884762c2837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controlNumber: 21
+  _controlNumber: 22
   _event:
     m_PersistentCalls:
       m_Calls:
@@ -3744,7 +3816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5807d8923f0a4a4d8007884762c2837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controlNumber: 20
+  _controlNumber: 21
   _event:
     m_PersistentCalls:
       m_Calls:
@@ -5112,6 +5184,7 @@ GameObject:
   - component: {fileID: 1755712483}
   - component: {fileID: 1755712485}
   - component: {fileID: 1755712484}
+  - component: {fileID: 1755712486}
   m_Layer: 0
   m_Name: Rcam Recolor
   m_TagString: Untagged
@@ -5130,7 +5203,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 438086463}
+  - {fileID: 64243862}
   m_Father: {fileID: 161959045}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5177,70 +5250,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f5e75c7e6f97c4a8a511902a3c670c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backGradient:
-    serializedVersion: 2
-    key0: {r: 0.09019608, g: 0.14117648, b: 0.40000004, a: 1}
-    key1: {r: 0.59607846, g: 0.3921569, b: 0.34509805, a: 1}
-    key2: {r: 0.6, g: 0.57254905, b: 0.3372549, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 28899
-    ctime1: 42780
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
-  _frontGradient:
-    serializedVersion: 2
-    key0: {r: 0.20392159, g: 0.454902, b: 0.31764707, a: 1}
-    key1: {r: 0.16470589, g: 0.72156864, b: 0.5058824, a: 1}
-    key2: {r: 1, g: 1, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 28785
-    ctime1: 48924
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
-  _backOpacity: 0
-  _frontOpacity: 0
   _dithering: 0.2
-  _lineColor: {r: 0.9433962, g: 0, b: 0.74203193, a: 1}
   _lineThreshold: 0.1
   _lineContrast: 6
+--- !u!114 &1755712486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755712482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15ae8dcaa86efa438e3f9823af7c907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controlNumber: 7
+  _onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755712485}
+        m_TargetAssemblyTypeName: Rcam2.RcamRecolorController, Assembly-CSharp
+        m_MethodName: ShuffleColors
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _offEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1774963900
 GameObject:
   m_ObjectHideFlags: 0
