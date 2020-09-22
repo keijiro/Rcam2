@@ -61,6 +61,13 @@ sealed class Controller : MonoBehaviour
 
     #endregion
 
+    #region Public method (UI callback)
+
+    public void ResetOrigin()
+      => _camera.transform.parent.position = -_camera.transform.localPosition;
+
+    #endregion
+
     #region Camera callbacks
 
     void OnCameraFrameReceived(ARCameraFrameEventArgs args)
