@@ -35,6 +35,13 @@ sealed class FeedbackEffectControllerAdapter : MonoBehaviour
       => _target.offsetX = _offsetCurve.Evaluate(value);
 
     #endregion
+
+    #region MonoBehaviour implementation
+
+    void Start()
+      => SetThrottle(0);
+
+    #endregion
 }
 
 } // namespace Rcam2

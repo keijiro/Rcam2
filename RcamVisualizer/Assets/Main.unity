@@ -555,7 +555,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154155704}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -1726,8 +1726,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 643685941}
   - {fileID: 643685945}
+  - {fileID: 643685941}
   m_VisualEffect: {fileID: 643685944}
 --- !u!73398921 &643685943
 VFXRenderer:
@@ -2052,8 +2052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 651696151}
   - {fileID: 651696155}
+  - {fileID: 651696151}
   m_VisualEffect: {fileID: 651696154}
 --- !u!73398921 &651696153
 VFXRenderer:
@@ -2482,8 +2482,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 679123995}
   - {fileID: 679123994}
+  - {fileID: 679123995}
   m_VisualEffect: {fileID: 679123993}
 --- !u!1 &697339480
 GameObject:
@@ -3198,8 +3198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 909593441}
   - {fileID: 909593437}
+  - {fileID: 909593441}
   m_VisualEffect: {fileID: 909593440}
 --- !u!73398921 &909593439
 VFXRenderer:
@@ -3423,8 +3423,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 937118154}
   - {fileID: 937118153}
+  - {fileID: 937118154}
   m_VisualEffect: {fileID: 937118157}
 --- !u!73398921 &937118156
 VFXRenderer:
@@ -3784,8 +3784,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 1034916021}
   - {fileID: 1034916025}
+  - {fileID: 1034916021}
   m_VisualEffect: {fileID: 1034916024}
 --- !u!73398921 &1034916023
 VFXRenderer:
@@ -4661,7 +4661,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104544460}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -5460,8 +5460,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 1431082122}
   - {fileID: 1431082121}
+  - {fileID: 1431082122}
   m_VisualEffect: {fileID: 1431082125}
 --- !u!73398921 &1431082124
 VFXRenderer:
@@ -6272,8 +6272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 1730251421}
   - {fileID: 1730251422}
+  - {fileID: 1730251421}
   m_VisualEffect: {fileID: 1730251425}
 --- !u!73398921 &1730251424
 VFXRenderer:
