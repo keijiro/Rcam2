@@ -1726,8 +1726,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 643685945}
   - {fileID: 643685941}
+  - {fileID: 643685945}
   m_VisualEffect: {fileID: 643685944}
 --- !u!73398921 &643685943
 VFXRenderer:
@@ -4049,6 +4049,7 @@ GameObject:
   - component: {fileID: 1049808517}
   - component: {fileID: 1049808516}
   - component: {fileID: 1049808515}
+  - component: {fileID: 1049808523}
   m_Layer: 0
   m_Name: Control
   m_TagString: Untagged
@@ -4088,7 +4089,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1774963903}
         m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
-        m_MethodName: set_EffectParameter
+        m_MethodName: set_EffectIntensity
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4116,7 +4117,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1774963903}
         m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
-        m_MethodName: set_EffectIntensity
+        m_MethodName: set_EffectParameter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4300,6 +4301,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1774963903}
         m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
         m_MethodName: set_BackFill
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1049808523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049808513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5807d8923f0a4a4d8007884762c2837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controlNumber: 16
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1774963903}
+        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
+        m_MethodName: set_EffectDirection
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5267,8 +5296,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 1431082121}
   - {fileID: 1431082122}
+  - {fileID: 1431082121}
   m_VisualEffect: {fileID: 1431082125}
 --- !u!73398921 &1431082124
 VFXRenderer:
@@ -6382,19 +6411,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _effectGradient:
     serializedVersion: 2
-    key0: {r: 0.20047058, g: 0.213, b: 0.06264705, a: 1}
-    key1: {r: 0.97647065, g: 0.14901961, b: 0.5137255, a: 1}
-    key2: {r: 0.85098046, g: 0.5647059, b: 0.8431373, a: 0}
-    key3: {r: 0.9843138, g: 0.77647066, b: 0.21960786, a: 0}
-    key4: {r: 0.8000001, g: 0.6313726, b: 0.49803925, a: 0}
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.13333333, g: 0.3529453, b: 1, a: 1}
+    key2: {r: 1, g: 0.13333333, b: 0.51903075, a: 0}
+    key3: {r: 0, g: 0.7582536, b: 1, a: 0}
+    key4: {r: 0.5525489, g: 0, b: 1, a: 0}
     key5: {r: 0, g: 1, b: 0.42510676, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 10922
-    ctime1: 21889
-    ctime2: 32833
-    ctime3: 43777
-    ctime4: 54722
+    ctime0: 11372
+    ctime1: 25636
+    ctime2: 37972
+    ctime3: 52043
+    ctime4: 65535
     ctime5: 65535
     ctime6: 0
     ctime7: 0
@@ -6407,7 +6436,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 1
-    m_NumColorKeys: 6
+    m_NumColorKeys: 5
     m_NumAlphaKeys: 2
 --- !u!114 &1774963904
 MonoBehaviour:

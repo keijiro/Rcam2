@@ -42,16 +42,6 @@
             #include "RcamBackground.hlsl"
             ENDHLSL
         }
-        Pass
-        {
-            Cull Off ZWrite On ZTest LEqual
-            HLSLPROGRAM
-            #pragma vertex Vert
-            #pragma fragment FullScreenPass
-            #define RCAM_FX3
-            #include "RcamBackground.hlsl"
-            ENDHLSL
-        }
     }
     Fallback Off
 }

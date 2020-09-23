@@ -9,7 +9,7 @@ float4x4 _InverseViewMatrix;
 
 float _BGOpacity;
 LinearGradient _EffectGradient;
-float2 _EffectParams;
+float4 _EffectParams;
 
 // Linear distance to Z depth
 float DistanceToDepth(float d)
@@ -27,6 +27,111 @@ float3 DistanceToWorldPosition(float2 uv, float d)
     return mul(_InverseViewMatrix, float4(p * d, 1)).xyz;
 }
 
+// Foreground fill effect
+float3 FGFillEffect(float3 wpos, float2 uv, float luma)
+{
+#if defined(RCAM_FX0)
+
+    // Animated zebra
+
+    // Noise field positions
+    float3 np1 = float3(wpos.y * 16, 0, _Time.y);
+    float3 np2 = float3(wpos.y * 32, 0, _Time.y * 2) * 0.8;
+
+    // Potential value
+    float pt = (luma - 0.5) + snoise(np1) + snoise(np2);
+
+    // Grayscale
+    float gray = abs(pt) < _EffectParams.x;
+
+    // Emission
+    float em = _EffectParams.y * 4;
+
+    // Output
+    return gray * (1 + em);
+
+#endif
+
+#if defined(RCAM_FX1)
+
+    // Marble-like pattern
+
+    // Frequency
+    float freq = lerp(2.75, 20, _EffectParams.x);
+
+    // Noise field position
+    float3 np = wpos * float3(1.2, freq, 1.2);
+    np += float3(0, -0.784, 0) * _Time.y;
+
+    // Potential value
+    float pt = 0.5 + (luma - 0.5) * 0.4 + snoise(np) * 0.7;
+
+    // Random seed
+    uint seed = (uint)(pt * 5 + _Time.y * 5) * 2;
+
+    // Color
+    float3 rgb = FastSRGBToLinear(HsvToRgb(float3(Hash(seed), 1, 1)));
+
+    // Emission
+    float em = Hash(seed + 1) < _EffectParams.y * 0.5;
+
+    // Output
+    return rgb * (1 + em * 8) + em;
+
+#endif
+
+#if defined(RCAM_FX2)
+
+    // Slicer seed calculation
+
+    // Slice frequency (1/height)
+    float freq = 60;
+
+    // Per-slice random seed
+    uint seed1 = floor(wpos.y * freq + 200) * 2;
+
+    // Random slice width
+    float width = lerp(0.5, 2, Hash(seed1));
+
+    // Random slice speed
+    float speed = lerp(1.0, 5, Hash(seed1 + 1));
+
+    // Effect direction
+    float3 dir = float3(_EffectParams.z, 0, _EffectParams.w);
+
+    // Potential value (scrolling strips)
+    float pt = (dot(wpos, dir) + 100 + _Time.y * speed) * width;
+
+    // Per-strip random seed
+    uint seed2 = (uint)floor(pt) * 0x87893u;
+
+    // Color mapping with per-strip UV displacement
+    float2 disp = float2(Hash(seed2), Hash(seed2 + 1)) - 0.5;
+    float3 cm = tex2D(_ColorTexture, frac(uv + disp * 0.1)).rgb;
+
+    // Per-strip random color
+    float3 cr = HsvToRgb(float3(Hash(seed2 + 2), 1, 1));
+
+    // Color selection (color map -> random color -> black)
+    float sel = Hash(seed2 + 3);
+    float3 rgb = sel < _EffectParams.x * 2 ? cr : cm;
+    rgb = sel < _EffectParams.x * 2 - 1 ? 0 : rgb;
+
+    // Emission
+    float3 em = Hash(seed2 + 4) < _EffectParams.y * 0.5;
+
+    // Output
+    return rgb * (1 + em * 8) + em;
+
+#endif
+
+#if defined(RCAM_NOFX)
+
+    return 0;
+
+#endif
+}
+
 void FullScreenPass(Varyings varyings,
                     out float4 outColor : SV_Target,
                     out float outDepth : SV_Depth)
@@ -42,71 +147,13 @@ void FullScreenPass(Varyings varyings,
     // Inverse projection
     float3 p = DistanceToWorldPosition(uv, d);
 
-    float lm = Luminance(FastLinearToSRGB(c.rgb));
-
-#if defined(RCAM_FX0)
-
-    // Noise slits
-    float3 np1 = float3(p.y * 16, 0, _Time.y);
-    float3 np2 = float3(p.y * 32, 0, _Time.y * 2) * 0.8;
-    float pt = (lm - 0.5) + snoise(np1) + snoise(np2);
-    float3 fill = abs(pt) < _EffectParams.x;
-    fill *= 1 + _EffectParams.y * 4;
-
-#endif
-
-#if defined(RCAM_FX1)
-
-    // Marble-like gradient
-    float freq = lerp(2.75, 20, _EffectParams.x);
-    float3 np = p * float3(1.2, freq, 1.2);
-    np += float3(0.024, 0.084, 0.745) * _Time.y;
-    float pt = 0.5 + (lm - 0.5) * 0.4 + snoise(np) * 0.7;
-    float3 fill = SampleLinearGradientColor(_EffectGradient, pt);
-    fill = FastSRGBToLinear(fill);
-    fill *= 1 + _EffectParams.y * 4;
-
-#endif
-
-#if defined(RCAM_FX2) || defined(RCAM_FX3)
-
-    // Slicer seed
-    float freq = lerp(10, 100, _EffectParams.x);
-    uint seed1 = floor(p.y * freq + 200) * 2;
-    float width = lerp(0.5, 2, Hash(seed1 + 0));
-    float speed = lerp(1.0, 5, Hash(seed1 + 1));
-    float pt = (p.x + 100 + _Time.y * speed) * width;
-    uint seed2 = (uint)floor(pt) * 0x87893u;
-
-#endif
-
-#if defined(RCAM_FX2)
-
-    // Slicer color
-    float pr = frac(Hash(seed2) + (lm - 0.5) * 0.2);
-    float3 fill = SampleLinearGradientColor(_EffectGradient, pr);
-    fill = FastSRGBToLinear(fill);
-
-#endif
-
-#if defined(RCAM_FX3)
-
-    // Slicer displacement
-    float2 disp = float2(Hash(seed2), Hash(seed2 + 1)) - 0.5;
-    float3 fill = tex2D(_ColorTexture, frac(uv + disp * 0.1)).rgb;
-
-#endif
-
-#if defined(RCAM_FX2) || defined(RCAM_FX3)
-
-    // Slicer emission
-    fill *= 1 + (Hash(seed2 + 2) < _EffectParams.y) * 10;
-
-#endif
-
 #if !defined(RCAM_NOFX)
 
-    c.rgb = lerp(c.rgb, fill, c.a);
+    // Source pixel luma value
+    float lum = Luminance(FastLinearToSRGB(c.rgb));
+
+    // Foreground fill effect
+    c.rgb = lerp(c.rgb, FGFillEffect(p, uv, lum), c.a);
 
 #endif
 
