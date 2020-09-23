@@ -1,5 +1,4 @@
 #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/RenderPass/CustomPass/CustomPassCommon.hlsl"
-#include "Packages/jp.keijiro.klak.lineargradient/Shader/LinearGradient.hlsl"
 #include "Packages/jp.keijiro.noiseshader/Shader/SimplexNoise3D.hlsl"
 
 sampler2D _ColorTexture;
@@ -8,7 +7,6 @@ float4 _ProjectionVector;
 float4x4 _InverseViewMatrix;
 
 float _BGOpacity;
-LinearGradient _EffectGradient;
 float4 _EffectParams;
 
 // Linear distance to Z depth
