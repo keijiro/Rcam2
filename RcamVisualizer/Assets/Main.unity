@@ -489,7 +489,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option A
+  m_Text: NDI Source
 --- !u!222 &67799781
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1040,8 +1040,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 392662326}
   - {fileID: 392662330}
+  - {fileID: 392662326}
   m_VisualEffect: {fileID: 392662329}
 --- !u!73398921 &392662328
 VFXRenderer:
@@ -1726,8 +1726,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 643685941}
   - {fileID: 643685945}
+  - {fileID: 643685941}
   m_VisualEffect: {fileID: 643685944}
 --- !u!73398921 &643685943
 VFXRenderer:
@@ -2052,8 +2052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 651696155}
   - {fileID: 651696151}
+  - {fileID: 651696155}
   m_VisualEffect: {fileID: 651696154}
 --- !u!73398921 &651696153
 VFXRenderer:
@@ -3620,8 +3620,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 1034916025}
   - {fileID: 1034916021}
+  - {fileID: 1034916025}
   m_VisualEffect: {fileID: 1034916024}
 --- !u!73398921 &1034916023
 VFXRenderer:
@@ -4041,7 +4041,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1049808514}
-  - component: {fileID: 1049808523}
   - component: {fileID: 1049808522}
   - component: {fileID: 1049808521}
   - component: {fileID: 1049808520}
@@ -4051,7 +4050,7 @@ GameObject:
   - component: {fileID: 1049808516}
   - component: {fileID: 1049808515}
   m_Layer: 0
-  m_Name: Control Adapter
+  m_Name: Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4087,9 +4086,9 @@ MonoBehaviour:
   _event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1049808523}
-        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundControllerAdapter, Assembly-CSharp
-        m_MethodName: set_EffectIntensity
+      - m_Target: {fileID: 1774963903}
+        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
+        m_MethodName: set_EffectParameter
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4115,9 +4114,9 @@ MonoBehaviour:
   _event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1049808523}
-        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundControllerAdapter, Assembly-CSharp
-        m_MethodName: set_EffectParameter
+      - m_Target: {fileID: 1774963903}
+        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
+        m_MethodName: set_EffectIntensity
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4143,8 +4142,8 @@ MonoBehaviour:
   _onEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1049808523}
-        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundControllerAdapter, Assembly-CSharp
+      - m_Target: {fileID: 1774963903}
+        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
         m_MethodName: set_EffectNumber
         m_Mode: 3
         m_Arguments:
@@ -4174,8 +4173,8 @@ MonoBehaviour:
   _onEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1049808523}
-        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundControllerAdapter, Assembly-CSharp
+      - m_Target: {fileID: 1774963903}
+        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
         m_MethodName: set_EffectNumber
         m_Mode: 3
         m_Arguments:
@@ -4205,8 +4204,8 @@ MonoBehaviour:
   _onEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1049808523}
-        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundControllerAdapter, Assembly-CSharp
+      - m_Target: {fileID: 1774963903}
+        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
         m_MethodName: set_EffectNumber
         m_Mode: 3
         m_Arguments:
@@ -4236,8 +4235,8 @@ MonoBehaviour:
   _onEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1049808523}
-        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundControllerAdapter, Assembly-CSharp
+      - m_Target: {fileID: 1774963903}
+        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
         m_MethodName: set_EffectNumber
         m_Mode: 3
         m_Arguments:
@@ -4267,8 +4266,8 @@ MonoBehaviour:
   _onEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1049808523}
-        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundControllerAdapter, Assembly-CSharp
+      - m_Target: {fileID: 1774963903}
+        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
         m_MethodName: set_EffectNumber
         m_Mode: 3
         m_Arguments:
@@ -4298,9 +4297,9 @@ MonoBehaviour:
   _event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1049808523}
-        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundControllerAdapter, Assembly-CSharp
-        m_MethodName: set_EnableBackRender
+      - m_Target: {fileID: 1774963903}
+        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
+        m_MethodName: set_BackFill
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4310,19 +4309,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1049808523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049808513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e4b7c6c99772c240a6e18406cbd980e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 1774963903}
 --- !u!1 &1068503948
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,11 +5003,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
-      m_Image: {fileID: 0}
-    - m_Text: Option B
-      m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: NDI Source
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5285,8 +5267,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 1431082122}
   - {fileID: 1431082121}
+  - {fileID: 1431082122}
   m_VisualEffect: {fileID: 1431082125}
 --- !u!73398921 &1431082124
 VFXRenderer:
@@ -6398,10 +6380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992fe41d48d7b144fadd1bd73bced58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _backOpacity: 1
-  _frontEffect: 0
-  _effectParameter: 0
-  _effectIntensity: 0
   _effectGradient:
     serializedVersion: 2
     key0: {r: 0.20047058, g: 0.213, b: 0.06264705, a: 1}

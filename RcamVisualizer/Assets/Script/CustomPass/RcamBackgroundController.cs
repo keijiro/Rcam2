@@ -8,20 +8,8 @@ namespace Rcam2 {
 //
 sealed class RcamBackgroundController : MonoBehaviour
 {
-    #region Enum declaration
-
-    public enum EffectType { Off, Slit, Marble, Slice, Displace }
-
-    #endregion
-
     #region Editable attributes
 
-    [Space]
-    [SerializeField, Range(0, 1)] float _backOpacity = 1;
-    [Space]
-    [SerializeField] EffectType _frontEffect = EffectType.Off;
-    [SerializeField, Range(0, 1)] float _effectParameter = 0;
-    [SerializeField, Range(0, 1)] float _effectIntensity = 0;
     [SerializeField] Gradient _effectGradient = null;
 
     #endregion
@@ -29,20 +17,17 @@ sealed class RcamBackgroundController : MonoBehaviour
     #region Public properties
 
     public bool IsActive => true;
+    public int PassNumber => EffectNumber;
+    public int EffectNumber { get; set; }
+    public bool BackFill { get; set; }
+    public float EffectParameter { get; set; }
+    public float EffectIntensity { get; set; }
 
-    public int PassNumber => (int)_frontEffect;
+    #endregion
 
-    public EffectType FrontEffect
-      { get => _frontEffect; set => _frontEffect = value; }
+    #region Private variables
 
-    public float BackOpacity
-      { get => _backOpacity; set => _backOpacity = value; }
-
-    public float EffectParameter
-      { get => _effectParameter; set => _effectParameter = value; }
-
-    public float EffectIntensity
-      { get => _effectIntensity; set => _effectIntensity = value; }
+    float _backOpacity;
 
     #endregion
 
@@ -56,13 +41,21 @@ sealed class RcamBackgroundController : MonoBehaviour
     {
         if (_props == null) _props = new MaterialPropertyBlock();
 
-        var eparams = new Vector2(_effectParameter, _effectIntensity);
+        var eparams = new Vector2(EffectParameter, EffectIntensity);
         _props.SetFloat("_BGOpacity", _backOpacity);
         _props.SetVector("_EffectParams", eparams);
         _props.SetLinearGradient("_EffectGradient", _effectGradient);
 
         return _props;
     }
+
+    #endregion
+
+    #region MonoBehaviour implementation
+
+    void Update()
+      => _backOpacity = Mathf.Clamp01
+           (_backOpacity + (BackFill ? 1 : -1) * 10 * Time.deltaTime);
 
     #endregion
 }
