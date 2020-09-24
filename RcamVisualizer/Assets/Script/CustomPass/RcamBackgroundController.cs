@@ -8,16 +8,10 @@ namespace Rcam2 {
 //
 sealed class RcamBackgroundController : MonoBehaviour
 {
-    #region Editable attributes
-
-    [SerializeField] Gradient _effectGradient = null;
-
-    #endregion
-
     #region Public properties
 
     public bool IsActive => true;
-    public int PassNumber => EffectNumber;
+    public int PassNumber => _currentEffect;
     public bool BackFill { get; set; } = true;
     public int EffectNumber { get; set; }
     public float EffectDirection { get; set; }
@@ -29,6 +23,8 @@ sealed class RcamBackgroundController : MonoBehaviour
     #region Private variables
 
     float _backOpacity;
+    float _effectOpacity;
+    int _currentEffect;
 
     #endregion
 
@@ -42,13 +38,13 @@ sealed class RcamBackgroundController : MonoBehaviour
     {
         if (_props == null) _props = new MaterialPropertyBlock();
 
+        var oparams = new Vector2(_backOpacity, _effectOpacity);
         var phi = EffectDirection * Mathf.PI * 2;
         var eparams = new Vector4
           (EffectParameter, EffectIntensity, Mathf.Sin(phi), Mathf.Cos(phi));
 
-        _props.SetFloat("_BGOpacity", _backOpacity);
+        _props.SetVector("_Opacity", oparams);
         _props.SetVector("_EffectParams", eparams);
-        _props.SetLinearGradient("_EffectGradient", _effectGradient);
 
         return _props;
     }
@@ -58,8 +54,21 @@ sealed class RcamBackgroundController : MonoBehaviour
     #region MonoBehaviour implementation
 
     void Update()
-      => _backOpacity = Mathf.Clamp01
-           (_backOpacity + (BackFill ? 1 : -1) * 10 * Time.deltaTime);
+    {
+        var delta = Time.deltaTime * 10;
+
+        // BG opacity animation
+        var dir = BackFill ? 1 : -1;
+        _backOpacity = Mathf.Clamp01(_backOpacity + dir * delta);
+
+        // Effect opacity animation
+        dir = _currentEffect == EffectNumber ? 1 : -1;
+        _effectOpacity = Mathf.Clamp01(_effectOpacity + dir * delta);
+
+        // We can switch the effect when the opacity becomes zero.
+        if (_currentEffect != EffectNumber && _effectOpacity == 0)
+            _currentEffect = EffectNumber;
+    }
 
     #endregion
 }

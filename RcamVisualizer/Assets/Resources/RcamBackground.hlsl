@@ -6,8 +6,8 @@ sampler2D _DepthTexture;
 float4 _ProjectionVector;
 float4x4 _InverseViewMatrix;
 
-float _BGOpacity;
-float4 _EffectParams;
+float2 _Opacity; // Background, Effect
+float4 _EffectParams; // param, intensity, sin(r), cos(r)
 
 // Linear distance to Z depth
 float DistanceToDepth(float d)
@@ -25,8 +25,8 @@ float3 DistanceToWorldPosition(float2 uv, float d)
     return mul(_InverseViewMatrix, float4(p * d, 1)).xyz;
 }
 
-// Foreground fill effect
-float3 FGFillEffect(float3 wpos, float2 uv, float luma)
+// Foreground effect
+float3 ForegroundEffect(float3 wpos, float2 uv, float luma)
 {
 #if defined(RCAM_FX0)
 
@@ -40,7 +40,7 @@ float3 FGFillEffect(float3 wpos, float2 uv, float luma)
     float pt = (luma - 0.5) + snoise(np1) + snoise(np2);
 
     // Grayscale
-    float gray = abs(pt) < _EffectParams.x;
+    float gray = abs(pt) < _EffectParams.x + 0.02;
 
     // Emission
     float em = _EffectParams.y * 4;
@@ -150,17 +150,18 @@ void FullScreenPass(Varyings varyings,
     // Source pixel luma value
     float lum = Luminance(FastLinearToSRGB(c.rgb));
 
-    // Foreground fill effect
-    c.rgb = lerp(c.rgb, FGFillEffect(p, uv, lum), c.a);
+    // Foreground effect
+    float3 eff = ForegroundEffect(p, uv, lum);
+    c.rgb = lerp(c.rgb, eff, c.a * _Opacity.y);
 
 #endif
 
     // BG opacity
-    float3 bg = FastSRGBToLinear(FastLinearToSRGB(c.rgb) * _BGOpacity);
+    float3 bg = FastSRGBToLinear(FastLinearToSRGB(c.rgb) * _Opacity.x);
     c.rgb = lerp(bg, c.rgb, c.a);
 
     // Depth mask
-    bool mask = c.a > 0.5 || _BGOpacity > 0;
+    bool mask = c.a > 0.5 || _Opacity.x > 0;
 
     // Output
     outColor = c;
