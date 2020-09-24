@@ -4210,7 +4210,6 @@ GameObject:
   - component: {fileID: 1049808520}
   - component: {fileID: 1049808519}
   - component: {fileID: 1049808518}
-  - component: {fileID: 1049808517}
   - component: {fileID: 1049808516}
   - component: {fileID: 1049808515}
   - component: {fileID: 1049808523}
@@ -4291,37 +4290,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1049808517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049808513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d15ae8dcaa86efa438e3f9823af7c907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _controlNumber: 6
-  _onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1774963903}
-        m_TargetAssemblyTypeName: Rcam2.RcamBackgroundController, Assembly-CSharp
-        m_MethodName: set_EffectNumber
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _offEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1049808518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6573,35 +6541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992fe41d48d7b144fadd1bd73bced58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0.13333333, g: 0.3529453, b: 1, a: 1}
-    key2: {r: 1, g: 0.13333333, b: 0.51903075, a: 0}
-    key3: {r: 0, g: 0.7582536, b: 1, a: 0}
-    key4: {r: 0.5525489, g: 0, b: 1, a: 0}
-    key5: {r: 0, g: 1, b: 0.42510676, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 11372
-    ctime1: 25636
-    ctime2: 37972
-    ctime3: 52043
-    ctime4: 65535
-    ctime5: 65535
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_NumColorKeys: 5
-    m_NumAlphaKeys: 2
 --- !u!114 &1774963904
 MonoBehaviour:
   m_ObjectHideFlags: 0
