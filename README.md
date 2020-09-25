@@ -42,3 +42,6 @@ How To Run
 
 1. Build and run the RcamController project on the iPad device.
 1. Play the RcamVisualizer project on the desktop system.
+1. Select a controller from the dropdown list. You can hide the UI by clicking
+   an empty area of the screen.
+
