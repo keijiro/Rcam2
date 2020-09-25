@@ -23,9 +23,10 @@ hardware but only a network connection.
 
 [NDI]: https://www.ndi.tv/
 
-I used Rcam2 in a Boiler Room stream on 24th September 2020. You can see the
+I used Rcam2 in a [Boiler Room] stream on 24th September 2020. You can see the
 [recorded video] on YouTube.
 
+[Boiler Room]: https://boilerroom.tv/
 [recorded video]: https://youtu.be/ANVNNxid2to
 
 System Requirements
