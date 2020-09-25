@@ -9,22 +9,24 @@ Rcam2
 
 <!--4567890123456789012345678901234567890123456789012345678901234567890123456-->
 
-Rcam2 is my second attempt at making a real-time volumetric/AR VFX system with
+**Rcam2** is my second attempt at a real-time volumetric AR VFX system with
 [Unity] (the first attempt is [Rcam]). This time I used iPad Pro with a LiDAR
 scanner.
 
 [Unity]: https://unity.com/
 [Rcam]: https://github.com/keijiro/Rcam
 
-Rcam2 uses an iPad device as a remote camera/controller for the visualizer
-running on a desktop computer. It uses [NDI] to send a video stream and
-metadata (camera position, control data, etc.), so it doesn't require special
-hardware but only a network connection.
+The Rcam2 system consists of two software components: **RcamController** and
+**RcamVisualizer**. RcamController runs on an iPad device and sends a video
+stream and metadata (camera position, control data, etc.) to RcamVisualizer,
+which runs on a desktop computer and renders VFX. It uses [NDI] to communicate
+between these two components, so it doesn't require any special hardware but
+only a network connection
 
 [NDI]: https://www.ndi.tv/
 
-I used Rcam2 in a [Boiler Room] stream on 24th September 2020. You can see the
-[recorded video] on YouTube.
+I used Rcam2 in a [Boiler Room] stream on 24th September 2020. You can watch
+the [recorded video] on YouTube.
 
 [Boiler Room]: https://boilerroom.tv/
 [recorded video]: https://youtu.be/ANVNNxid2to
