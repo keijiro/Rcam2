@@ -34,8 +34,17 @@ the [recorded video] on YouTube.
 System Requirements
 -------------------
 
-- HDRP-compatible desktop system
+#### RcamController
+
+- Unity 2020.1.6
 - iPad Pro with LiDAR scanner (2020 model)
+- iOS 14 and Xcode 12
+- NDI SDK 4.5
+
+#### RcamVisualizer
+
+- Unity 2020.1.6
+- HDRP-compatible desktop system
 
 How To Run
 ----------
