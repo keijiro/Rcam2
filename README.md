@@ -7,8 +7,6 @@ Rcam2
 ![gif](https://i.imgur.com/sqCRth4.gif)
 ![gif](https://i.imgur.com/t7tEp61.gif)
 
-<!--4567890123456789012345678901234567890123456789012345678901234567890123456-->
-
 **Rcam2** is my second attempt at a real-time volumetric AR VFX system with
 [Unity] (the first attempt is [Rcam]). This time I used iPad Pro with a LiDAR
 scanner.
@@ -54,3 +52,44 @@ How To Run
 1. Select a controller from the dropdown list. You can hide the UI by clicking
    an empty area of the screen.
 
+Rcam2 is my second attempt at making a real-time volumetric/AR VFX system with Unity (the first attempt is here). This time I used iPad Pro with a LiDAR scanner.
+
+The Rcam2 system consists of two software components: RcamController and RcamVisualizer. RcamController runs on an iPad device and sends a video stream and metadata (camera position, control data, etc.) to RcamVisualizer, which runs on a desktop computer and renders VFX. It uses NDI to communicate between the controller and the visualizer, so it doesn't require any special hardware but only a network connection (wired or wireless).
+
+TIPS
+----
+
+- Although Rcam2 works with a wireless connection, it's recommended to use a
+  wired ethernet connection for better latency and framerate. NDI works in a
+  zero-configuration fashion, so you can directly connect a device and a
+  computer without a router/switch.
+
+- Holding an iPad device for a long time could be painful in a physical sense.
+  You can relieve it by using [a camera handle].
+
+[a camera handle]: https://twitter.com/_kzr/status/1309726929310765056
+
+- You can blur boundaries between rendered objects and real objects using the
+  color grading and the depth-of-field effects. It's recommended to enable the
+  "Film" and "DoF" toggles whenever these effects are acceptable.
+
+FAQ
+---
+
+#### Does it work with iPhone/iPad?
+
+No. Rcam2 requires a LiDAR scanner. iPad Pro 2020 is the only device that
+supports LiDAR at the moment.
+
+#### Is it possible to make it run on an iPad Pro device as a standalone app?
+
+It's technically possible but requires lots of changes. You might have to
+remove some HD features (like the DoF effect) and reduce some
+performance-related numbers like particle capacity counts in VFX.
+You also have to tackle several device issues like thermal throttling,
+battery life, etc.
+
+Don't expect that I do anything in this direction. The controller-visualizer
+design of Rcam2 is the most convenient way to avoid these problems.
+
+<!--4567890123456789012345678901234567890123456789012345678901234567890123456-->
