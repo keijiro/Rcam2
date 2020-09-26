@@ -69,6 +69,9 @@ TIPS
 
 [a camera handle]: https://twitter.com/_kzr/status/1309726929310765056
 
+- Under a normal configuration with a wired connection, RcamController runs up
+  to about two hours with a full charge.
+
 - You can blur boundaries between rendered objects and real objects using the
   color grading and the depth-of-field effects. It's recommended to enable the
   "Film" and "DoF" toggles whenever these effects are acceptable.
