@@ -75,6 +75,18 @@ TIPS
 FAQ
 ---
 
+#### I can't find the iPad device on the dropdown list.
+
+Try turning off the Windows firewall. It solves the problem in most cases.
+
+#### I chose the right device from the dropdown list, but it's unresponsive.
+
+If you're using a virtual network device, try turning it off. Note that WSL2
+implicitly creates a virtual network device ([vEthernet]). You have to turn it
+off to establish a connection correctly.
+
+[vEthernet]: https://twitter.com/_kzr/status/1301722460421644289
+
 #### Does it work with iPhone/iPad?
 
 No. Rcam2 requires a LiDAR scanner. iPad Pro 2020 is the only device that
