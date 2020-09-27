@@ -52,10 +52,6 @@ How To Run
 1. Select a controller from the dropdown list. You can hide the UI by clicking
    an empty area of the screen.
 
-Rcam2 is my second attempt at making a real-time volumetric/AR VFX system with Unity (the first attempt is here). This time I used iPad Pro with a LiDAR scanner.
-
-The Rcam2 system consists of two software components: RcamController and RcamVisualizer. RcamController runs on an iPad device and sends a video stream and metadata (camera position, control data, etc.) to RcamVisualizer, which runs on a desktop computer and renders VFX. It uses NDI to communicate between the controller and the visualizer, so it doesn't require any special hardware but only a network connection (wired or wireless).
-
 TIPS
 ----
 
