@@ -24,10 +24,10 @@ only a network connection
 [NDI]: https://www.ndi.tv/
 
 I used Rcam2 in a [Boiler Room] stream on 24th September 2020. You can watch
-the [recorded video] on YouTube.
+the [recorded video] on Vimeo.
 
 [Boiler Room]: https://boilerroom.tv/
-[recorded video]: https://youtu.be/ANVNNxid2to
+[recorded video]: https://vimeo.com/462592995
 
 System Requirements
 -------------------
