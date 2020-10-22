@@ -71,7 +71,7 @@
       "url": "https://packages.unity.com"
     },
     "jp.keijiro.klak.ndi": {
-      "version": "1.0.11",
+      "version": "1.0.12",
       "depth": 0,
       "source": "registry",
       "dependencies": {

@@ -13,7 +13,7 @@
   ],
   "dependencies": {
     "jp.keijiro.rcam2.metadata": "file:../../RcamMetadata",
-    "jp.keijiro.klak.ndi": "1.0.11",
+    "jp.keijiro.klak.ndi": "1.0.12",
     "jp.keijiro.klak.vjui": "1.0.2",
     "com.unity.ugui": "1.0.0",
     "com.unity.xr.arfoundation": "4.1.0-preview.7",
