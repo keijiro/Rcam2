@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controlType: 1
   _controlNumber: 12
-  _delayTillOff: 4
+  _delayTillOff: 5
 --- !u!114 &3926796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3551,7 +3551,7 @@ GameObject:
   - component: {fileID: 969529207}
   - component: {fileID: 969529206}
   m_Layer: 0
-  m_Name: Kanji
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
