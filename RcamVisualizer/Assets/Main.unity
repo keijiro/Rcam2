@@ -4824,7 +4824,7 @@ GameObject:
   - component: {fileID: 1317974629}
   - component: {fileID: 1317974628}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Lissajous
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4892,7 +4892,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317974624}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: a2d373b81a66c5c4e965861277fe3aeb, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 91ee7c73ddb42c84b9be71b4fa693851, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -4955,7 +4955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controlType: 1
   _controlNumber: 11
-  _delayTillOff: 4
+  _delayTillOff: 7.5
 --- !u!114 &1317974630
 MonoBehaviour:
   m_ObjectHideFlags: 0
