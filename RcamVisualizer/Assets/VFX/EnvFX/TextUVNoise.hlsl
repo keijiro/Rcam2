@@ -1,6 +1,6 @@
 #include "Packages/jp.keijiro.noiseshader/Shader/SimplexNoise3D.hlsl"
 
-void KanjiUVNoise_float
+void TextUVNoise_float
   (float2 uv, float frequency, float speed, float amplitude,
    out float2 output)
 {
