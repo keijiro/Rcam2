@@ -15,7 +15,7 @@ public sealed class InputHandle : MonoBehaviour
 
     bool [] _buttons = new bool [16];
     bool [] _toggles = new bool [16];
-    float [] _knobs = new float [24];
+    float [] _knobs = new float [32];
 
     #endregion
 
@@ -79,6 +79,14 @@ public sealed class InputHandle : MonoBehaviour
     public float Knob21 { get => _knobs[21]; set => _knobs[21] = value; }
     public float Knob22 { get => _knobs[22]; set => _knobs[22] = value; }
     public float Knob23 { get => _knobs[23]; set => _knobs[23] = value; }
+    public float Knob24 { get => _knobs[24]; set => _knobs[24] = value; }
+    public float Knob25 { get => _knobs[25]; set => _knobs[25] = value; }
+    public float Knob26 { get => _knobs[26]; set => _knobs[26] = value; }
+    public float Knob27 { get => _knobs[27]; set => _knobs[27] = value; }
+    public float Knob28 { get => _knobs[28]; set => _knobs[28] = value; }
+    public float Knob29 { get => _knobs[29]; set => _knobs[29] = value; }
+    public float Knob30 { get => _knobs[30]; set => _knobs[30] = value; }
+    public float Knob31 { get => _knobs[31]; set => _knobs[31] = value; }
 
     #endregion
 
@@ -119,7 +127,7 @@ public sealed class InputHandle : MonoBehaviour
             state.SetToggleData(i, tdata);
         }
 
-        for (var i = 0; i < 24; i++)
+        for (var i = 0; i < 32; i++)
             state.SetKnobData(i, (int)(_knobs[i] * 255));
 
         return state;
@@ -139,7 +147,7 @@ public sealed class InputHandle : MonoBehaviour
             }
         }
 
-        for (var i = 0; i < 24; i++)
+        for (var i = 0; i < 32; i++)
             _knobs[i] = state.GetKnobData(i) / 255.0f;
     }
 
