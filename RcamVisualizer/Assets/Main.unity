@@ -2483,8 +2483,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 679123994}
   - {fileID: 679123995}
+  - {fileID: 679123994}
   m_VisualEffect: {fileID: 679123993}
 --- !u!1 &697339480
 GameObject:
@@ -3199,8 +3199,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 909593437}
   - {fileID: 909593441}
+  - {fileID: 909593437}
   m_VisualEffect: {fileID: 909593440}
 --- !u!73398921 &909593439
 VFXRenderer:
@@ -3424,8 +3424,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 0
   m_Bindings:
-  - {fileID: 937118153}
   - {fileID: 937118154}
+  - {fileID: 937118153}
   m_VisualEffect: {fileID: 937118157}
 --- !u!73398921 &937118156
 VFXRenderer:
@@ -6725,6 +6725,7 @@ MonoBehaviour:
         passFoldout: 0
         m_Version: 0
         _controller: {fileID: 1774963903}
+        _depthOffset: 0
 --- !u!4 &1774963902
 Transform:
   m_ObjectHideFlags: 0
@@ -6783,6 +6784,7 @@ MonoBehaviour:
         passFoldout: 0
         m_Version: 0
         _controller: {fileID: 1774963903}
+        _depthOffset: 1
 --- !u!1 &1805881185
 GameObject:
   m_ObjectHideFlags: 0

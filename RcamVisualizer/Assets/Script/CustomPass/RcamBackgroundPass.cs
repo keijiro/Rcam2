@@ -13,6 +13,7 @@ sealed class RcamBackgroundPass : CustomPass
     #region Editable attributes
 
     public RcamBackgroundController _controller = null;
+    public bool _depthOffset = false;
 
     #endregion
 
@@ -46,6 +47,7 @@ sealed class RcamBackgroundPass : CustomPass
 
         _material.SetVector(ShaderID.ProjectionVector, prj);
         _material.SetMatrix(ShaderID.InverseViewMatrix, v2w);
+        _material.SetFloat(ShaderID.DepthOffset, _depthOffset ? -1e-9f : 0);
         _material.SetTexture(ShaderID.ColorTexture, recv.ColorTexture);
         _material.SetTexture(ShaderID.DepthTexture, recv.DepthTexture);
 
